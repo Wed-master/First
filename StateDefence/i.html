@@ -1,0 +1,1935 @@
+<html lang=ru>
+<head>
+    <meta charset=utf-8>
+    <title>State Defence 2</title>
+    <link rel="icon" href="ikon1.ico">
+</head>
+
+<body>
+!ошибка!
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script>
+    var JON, JONK, pers = [], hod = 0, comp, cheL = [-100], cheL2 = [-100], chel, chel2, pl = [];
+    var tor = ((parseInt(window.innerHeight) - 275) / 2), left = ((parseInt(window.innerWidth) - 610) / 2)
+    function out(a) {
+        scren.innerHTML += a;
+    }
+    function rand(min, max) {
+        return Math.trunc(min + Math.random() * (max + 1 - min));
+    }
+    function findB(x, y) {
+        for (var i = 0; i < yo.length; i++) {
+            if (yo[i][0] == x && yo[i][1] == y) {
+                return i;
+            }
+        }
+        return -1;
+    }
+    var gift2 = ['<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=small.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=cup.png width=45 height=45><br>x15</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=small.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=cup.png width=45 height=45><br>x15</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x2</br>', '<img src=small.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mega.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x2</br>', '<img src=mony.png width=45 height=45><br>x6</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=small.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mega.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=big.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=prof12.png width=100 height=60 style="position:absolute;top:0;left:-15;"><br><span style="font-size:10;color:gold;position:absolute;bottom:0;left:5;">Лесной</span></br>'], gift3 = ['<img src=mony.png width=45 height=45><br>x10</br>', '<img src=prof4.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=small.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=big.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=gem.png width=45 height=45><br>x5</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=prof17.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=gem.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=small.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=big.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=gem.png width=45 height=45><br>x5</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=prof9.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=small.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=big.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=gem.png width=45 height=45><br>x5</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=ord.png width=45 height=45><br>x3</br>', '<img src=prof2.png width=70 height=70>', '<img src=mega.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=mega.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=mega.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=mega.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=mega.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=mega.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=mega.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=mega.png width=70 height=70>', '<img src=mony.png width=45 height=45><br>x10</br>', '<img src=mega.png width=70 height=70>', '<img src=mega.png width=70 height=70>'], gift = ['<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=small.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=cup.png width=45 height=45><br>x15</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=small.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=cup.png width=45 height=45><br>x15</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x2</br>', '<img src=small.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mega.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x2</br>', '<img src=mony.png width=45 height=45><br>x6</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=small.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mega.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=big.png width=60 height=60>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=mony.png width=45 height=45><br>x5</br>', '<img src=ord.png width=45 height=45><br>x1</br>', '<img src=prof8.png  width=100 height=60 style="position:absolute;top:0;left:-15;"><br><span style="font-size:10;color:gold;position:absolute;bottom:0;left:5;">Опустош.</span></br>'], bnb = [], bnb2 = [], bnb3 = [], prof = ['prof5.png', 'prof2.png', 'prof0.png', 'prof1.png', 'prof3.png', 'prof4.png', 'prof7.png', 'prof8.png', 'prof9.png', 'prof10.png', 'prof11.png', 'prof13.png', 'prof14.png', 'prof15.png', 'prof16.png', 'prof17.png', 'prof18.png', 'prof19.png', 'prof20.png'], img = ['hero5.png', 'hero2.png', 'hero0.png', 'hero1.png', 'hero3.png', 'hero4.png', 'hero7.png', 'hero8.png', 'hero9.png', 'hero10.png', 'hero11.png', 'hero13.png', 'hero14.png', 'hero15.png', 'hero16.png', 'hero17.png', 'hero18.png', 'hero19.png', 'hero20.png'], nam = ['Рыцарь', 'Эль Джоно', 'Король змей', 'Риндз', 'Джо', 'Cенсей', 'Сёгун', 'Опустошитель', 'Странник', 'Стальной', 'Фил', 'Джинн', 'Некрос', 'Буревестник', 'Адский воин', 'Анубис', 'Шериф', 'Клевенс', 'Призрак'], red = ['обычный', 'обычный', 'эпический', 'эпический', 'обычный', 'мифический', 'эпический', 'легендарный', 'мифический', 'эпический', 'обычный', 'эпический', 'мифический', 'обычный', 'мифический', 'легендарный', 'эпический', 'мифический', 'эпический'], clas = ['рукопашка', 'странник', 'маг', 'убийца', 'убийца', 'странник', 'полководец', 'воин', 'полководец', 'убийца', 'изобретатель', 'рукопашка', 'маг', 'воин', 'нечисть', 'бог', 'убийца', 'изобретатель', 'нечисть'], bio = ['Рыцарь - бестрашный и благородный воин. Очень силён.', 'Эль Джоно - странник блуждающий по миру и поющий везде свои песни. Его песни зачарованные и лечат раны.', 'Король змей - великий владыка змей. Очень самолюбив и горд. Его способность отравляет противника.', 'Риндз - великий воин'], foto = 'profile.png', time = 0, date = new Date, gem = 0, mony = 10000, ord = 0, who, have = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17], skill = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], k = 0, pal = -1, PUSK = 0, DW = 0, X, Y, X1, Y1, pal1 = -1, pal2 = -1, tor = 0, left = 0, kop = 4, xh = [140], yh = [305], AT = false, at = [400, 320, 100, 450, 80, 380, 400, 200, 400, 200, 220, 410, 300, 350, 300, 110, 440, 380], hp = [3800, 4300, 4000, 4200, 3200, 4100, 3600, 5200, 3700, 4000, 4000, 3900, 4200, 4100, 4000, 3900, 3800, 4000], V = [2.1, 1.5, 0.6, 2.2, 0.5, 1.8, 1.6, 1.6, 1.7, 1, 1.3, 2.1, 1.5, 1.7, 1.5, 1.3, 2.2, 1.9], zas = [100, 50, 10, 10, 200, 20, 50, 20, 50, 100, 150, 120, 50, 100, 110, 150, 120, 50, 100, 110, 150, 200, 100], hpB = [], hpP = 0, hpP1, pkol = 0, dal = [1.7, 2.3, 0.9, 1, 1.2, 1.2, 1.6, 1.5, 1.3, 0.9, 1, 0.85, 0.8, 0.8, 0.6, 0.8, 0.8, 2, 0.9], PX = [], PY = [], voper = [], X2, Y2, ultN = ['Ярость', 'Песня', 'Змеиный яд', 'Неуязвимость', 'Бронирежим', 'Ускорение', 'В атаку!', 'Бессмертие', 'Буря', 'Тайный удар', 'Заморозка', 'Кража жизни', 'Восстание мертвецов', 'Гнев богов', 'Призыв', 'Геошторм', 'Залп', 'Взлом'], ult = ['Рыцарь впадает в ярость и увеличивает свой урон на 90% и защиту 20% в течении 2 ходов.', 'Эль Джоно начинает петь и поднимает дух команды. Атака увеличиваеться на 40%, защита на 20%  у всех союзников и Джоно в течении 1 хода.', 'Король змей отравляет любого врага и наносит 160% от атаки и восстанавливает себе 40% от атаки.', 'Риндз становиться неуязвимым на 1ход и восстанавливает 50% от атаки.', 'Джо увеличивает защиту на 200% в течении 1 хода и наносит любому врагу 100% от атаки.', 'Сенсей увеличивает скорость атаки вдвое в течении 3 ходов.', 'Сёгун увеличивает атаку всем союзникам на 20% в течении 2 ходов. И наносит случайному врагу 45% от атаки', 'Опустошитель, после удара, даёт возможность себе возродиться с 35% жизни после смерти. Возрождений не ограничено.', 'Странник наносит 5% от атаки всем врагам и оглушает их на 1 сек.', 'Наносит 100% от урона любому противнику и восстанавливает 100% от атаки.', 'Замороживает всех противников на 1 ход.', 'Джинн абирает у всех противников 25% от своей атаки и воостанавливает себе и союзникам столько же здоровья соответственно.', 'Если все союзники живы, то оглушает ближайшего противника на 2 сек. Если один или нескоько союзников мертвы, то воскрешает одного из них с 25% жизни', 'Буревестник пускает молот, кторый наносит каждому противнику 55% от атаки.', 'Адский воин создаёт армию из клонов, которые наносят противникам по 15% от атаки Адского воина. После каждого удара клона Адсий воин восстанавливает 5% от атаки.', 'Анубис становится неуязвимым и создаёт вокруг себя волны в течении 3 сек. Волны наносят противникам 80% от атаки и лечат союзников и Анубиса на 40% от атаки каждую секунду.', 'Шериф - наносит град выстрелов по врагу. После каждого выстрела наносит 25% от аткаки и лечит себе 10% от атаки.', 'Клевенс взламывает противника и переводит его на свою сторону на 4 сек.'], zv = ['⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐'], sezon = 5000, pas = 0, why, bull = 1000000, SI = 0, teef = 1, block = "cube.png", mapi = [], num = 'Эксперт', upg1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], upg2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], upg3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], upg3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], fonch = 0, cel = [], cel2 = [], def = 0, X3, Y3, zard = [], crow = [17, 12, 7, 8], hpB = [], atB = [], color = [], h1 = 0, a1 = 0, kol = 26, hj1, hj2, numi = 'Игрок', kv = 1, kv1 = 2, kv2 = 6, hb = [], hb1 = [], plo, plo1, plo2, ur = [], jj = 0, you = 3, k = 1, k1 = 0, k2 = 0, vol = 1, at1 = [], sup = [], ho, v1, v2, v3, v4, yo = [], ULTA = [], zasB = [], GOO = [], arteN = ['Артефакт', 'Мечи огня', 'Золотой дракон', 'Красный дракон', 'Магия огня', 'Тёмная материя', 'Броня бога', 'Луч жизни', 'Шар льда'], arte = ['', 'Наносит все врагам 20% от атаки владельца и восстанавливает 10% жизни.', 'Призывает Золотого дракона и лечит союзников.', 'Призывает Красного дракона и наносит урон.', 'Наносит огромный урон противнику', 'Оглушает всех противников на 1 сек.', 'Увеличивает защиту на 400% в течении 2сек.', 'Восстанавливает 40% от жизни.', 'Наносит огромный урон противнику и лечит владельца'], namP = ['Драко', 'Феникс'], atP = [30, 40], hpP = [160, 120], eneP = [5600, 5400], ultNP = ['Энерго шар', 'Луч'], ultP = ['Пускает энергечиский шар который наносит противникам урон и отбрасывает их.', 'Извергает луч которой лечит союников и наносит урон врагам'], bioP = ['Драко - зелёный дракон. Он спустился с Великого утёса. Его способность огромный энерго шар, который рассталкивает противников.', 'Феникс - дракон из пепла.'], clasP = ['атака', 'поддержка'], AR = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], haveAr = [1, 1, 1, 1, 0, 0], mpit = 0, crowP = [-1, -1, -1, -1];
+    // //localStorage.clear();
+    document.write('<span style="position:fixed;top:0;left:0;background:#111;width:' + ((parseInt(window.innerWidth) - 610) / 2) + ';height:100%;z-index:1000000;"></span>')
+    document.write('<span style="position:fixed;top:0;right:0;background:#111;width:' + ((parseInt(window.innerWidth) - 610) / 2) + ';height:100%;z-index:1000000;"></span>')
+    document.write('<span style="position:fixed;top:0;left:0;background:#111;height:' + ((parseInt(window.innerHeight) - 275) / 2) + ';width:100%;z-index:1000000;"></span>')
+    document.write('<span style="position:fixed;bottom:0;left:0;background:#111;height:' + ((parseInt(window.innerHeight) - 275) / 2) + ';width:100%;z-index:1000000;"></span>')
+    tor = (parseInt(window.innerHeight) - 275) / 2;
+    left = (parseInt(window.innerWidth) - 610) / 2;
+    document.write('<dwww style="position:absolute;top:' + tor + ';left:' + left + ';width:610;height:275;" id=scren></dwww>')
+    for (var i = 0; i < 60; i++) {
+        mapi[i] = [];
+        for (var j = 0; j < 60; j++) {
+            mapi[i][j] = ' ';
+        }
+    }
+    //out('<span id=screen>')
+    function fon() {
+        scren.innerHTML = '';
+
+        out('<img src=fon.png width=100% height=100% style="position:fixed;top:0;left:0;">')
+    }
+    function fon2() {
+        scren.innerHTML = '';
+
+        out('<img src=fon.png width=100% height=100% style="position:fixed;top:0;left:0;"><span style="position:absolute;top:0;left:0;width:100%;height:100%;background:#ff000077"></span>')
+    }
+    function pro() {
+
+        out('<span style="position:absolute;top:20;left:0;">0</span>')
+        fon();
+        if (foto == "profile.png") {
+            foto = "";
+        }
+        out(`<span style="position:absolute;top:5;left:0;width:100%;text-align:center;"><img src=профиль.png width=130 height=50></span><span style="position:absolute;top:70;left:100;background:#303030;color:grey;font-size:20;">Имя: ` + num + `</span><span style="position:absolute;top:70;left:400;background:#303030;color:grey;font-size:20;" >Аватар: <input style="width:130" placeholder="URL ссылка" id=a value=` + foto + `></span><span style="position:absolute;top:120;left:100;background:#303030;color:grey;font-size:20;">Побед: 0</span><span style="position:absolute;top:120;left:400;background:#303030;color:grey;font-size:20;">Поражений: 0</span><span style="position:absolute;top:170;left:100;background:#303030;color:grey;font-size:20;">Героев: 1</span><span style="position:absolute;top:170;left:400;background:#303030;color:grey;font-size:20;">Трофеев: 0</span><span style="position:absolute;top:220;left:100;background:#303030;color:grey;font-size:20;">Уровень: LOL</span><span style="position:absolute;top:220;left:400;background:#303030;color:grey;font-size:20;">Время в игре: ` + Math.trunc(parseInt(localStorage.getItem("time")) / 1440) + `д ` + Math.trunc(parseInt(localStorage.getItem("time")) / 60) % 24 + `ч ` + parseInt(localStorage.getItem("time")) % 60 + `м</span><img src=str.png style="position:absolute;top:0;left:0;width:60;height:50;" onclick=men()>`)
+    }
+    function men() {
+        foto = document.getElementById("a").value;
+        if (foto == '') {
+            foto = 'profile.png';
+        }
+        menu();
+    }
+    function tim(h) {
+        if (!h) {
+            h = 0;
+        }
+        h++;
+        localStorage.setItem("time", h);
+        setTimeout(tim, 60000, h);
+    }
+    function menu() {
+        fon();
+        localStorage.setItem(num + "mony", mony);
+        localStorage.setItem(num + "vol", vol);
+        localStorage.setItem(num + "ord", ord);
+        localStorage.setItem(num + "gem", gem);
+        localStorage.setItem(num + "bull", bull);
+        localStorage.setItem(num + "sezon", sezon);
+        localStorage.setItem(num + "pas", pas);
+        localStorage.setItem(num + "foto", foto);
+        localStorage.setItem(num + "haveL", have.length);
+        for (var i = 0; i < have.length; i++) {
+            localStorage.setItem(num + "have" + i, have[i]);
+        }
+        for (var i = 0; i < skill.length; i++) {
+            localStorage.setItem(num + "skill" + i, skill[i]);
+        }
+        for (var i = 0; i < zv.length; i++) {
+            localStorage.setItem(num + "zv" + i, zv[i]);
+        }
+        for (var i = 0; i < img.length; i++) {
+            localStorage.setItem(num + "upg1" + i, upg1[i]);
+        }
+        for (var i = 0; i < gift.length; i++) {
+            localStorage.setItem(num + "bnb" + i, bnb[i]);
+            localStorage.setItem(num + "bnb2" + i, bnb2[i]);
+        }
+        for (var i = 0; i < gift3.length; i++) {
+            localStorage.setItem(num + "bnb3" + i, bnb3[i]);
+        }
+        for (var i = 0; i < img.length; i++) {
+            localStorage.setItem(num + "upg3" + i, upg3[i]);
+        }
+        for (var i = 0; i < img.length; i++) {
+            localStorage.setItem(num + "at" + i, at[i]);
+            localStorage.setItem(num + "hp" + i, hp[i]);
+            localStorage.setItem(num + "zas" + i, zas[i]);
+        }
+        if (time == 0) {
+            tim(parseInt(localStorage.getItem("time")));
+        }
+        time = 1;
+        out('<span style="position:absolute;top:75;left:170;border:2px ridge black;width:60;height:60;"><img src=' + prof[crow[0]] + ' width=106 height=65 style="position:absolute;top:-5;left:-23;"><span style="position:absolute;bottom:-10;left:-2;width:60.3;height:10;font-size:9;background:#303030;color:white;border-bottom:2px ridge black;border-left:2px ridge black;border-right:2px ridge black;text-align:center;">' + nam[crow[0]] + '</span></span>')
+        out('<span style="position:absolute;top:75;left:240;border:2px ridge black;width:60;height:60;"><img src=' + prof[crow[1]] + ' width=106 height=65 style="position:absolute;top:-5;left:-23;"><span style="position:absolute;bottom:-10;left:-2;width:60.3;height:10;font-size:9;background:#303030;color:white;border-bottom:2px ridge black;border-left:2px ridge black;border-right:2px ridge black;text-align:center;">' + nam[crow[1]] + '</span></span>')
+        out('<span style="position:absolute;top:75;left:310;border:2px ridge black;width:60;height:60;"><img src=' + prof[crow[2]] + ' width=106 height=65 style="position:absolute;top:-5;left:-23;"><span style="position:absolute;bottom:-10;left:-2;width:60.3;height:10;font-size:9;background:#303030;color:white;border-bottom:2px ridge black;border-left:2px ridge black;border-right:2px ridge black;text-align:center;">' + nam[crow[2]] + '</span></span>')
+        out('<span style="position:absolute;top:75;left:380;border:2px ridge black;width:60;height:60;"><img src=' + prof[crow[3]] + ' width=106 height=65 style="position:absolute;top:-5;left:-23;"><span style="position:absolute;bottom:-10;left:-2;width:60.3;height:10;font-size:9;background:#303030;color:white;border-bottom:2px ridge black;border-left:2px ridge black;border-right:2px ridge black;text-align:center;">' + nam[crow[3]] + '</span></span>')
+        out('<img src=' + foto + ' style="position:absolute;top:0;left:0;width:35;height:35;border: 0.7px solid black;background:#303030;" onclick=pro()>')
+        out('<b style="position:absolute;top:0;left:35;border:0.3px solid black;font-size:20px;color:gold;background:#303030;border-bottom-right-radius:10px;" onclick=way()><img src=cup.png width=20 height=20>' + bull + '<font color=#303030>"</font></b>')
+        out('<span style="position:absolute;top:0;right:0;background:#303030;color:white;border: 0.3px solid black;border-bottom-left-radius:4px;border-bottom-right-radius:4px;font-size:15;">&nbsp;<img src=gem.png width=15 height=15>' + gem + '&nbsp;</span><span style="position:absolute;top:0;right:70;background:#303030;color:white;border: 0.3px solid black;border-bottom-left-radius:4px;border-bottom-right-radius:4px;font-size:15;">&nbsp;<img src=ord.png width=15 height=15>' + ord + '&nbsp;</span><span style="position:absolute;top:0;right:140;background:#303030;color:white;border: 0.3px solid black;border-bottom-left-radius:4px;border-bottom-right-radius:4px;font-size:15;">&nbsp;<img src=mony.png width=15 height=15>' + mony + '&nbsp;</span>')
+        out('<img src=block_pass.png style="position:absolute;bottom:0;left:0;width:150;height:47;" onclick=pass()>')
+        out('<button style="position:absolute;bottom:0;right:0;width:130;height:60;font-family: sans-serif;text-shadow: 1px 2px 3px grey;color:white;background:gold;font-size:25px;" onclick=battle()><b>В бой</b></button>')
+        out('<img src=sob' + teef + '.png style="position:absolute;bottom:0;right:130;width:120;height:50;" onclick=loker()>')
+        out('<img src=shop.png style="position:absolute;bottom:170;left:0;width:50;height:50;" onclick=shop()>')
+        out('<img src=heroes.png style="position:absolute;bottom:70;left:0;width:50;height:50;" onclick=hero(1,0,0,0,0,0)>')
+        out('<img src=akaunt.png style="position:absolute;bottom:170;right:0;width:50;height:50;" onclick=akaunt()>')
+        out('<img src=питом.png style="position:absolute;bottom:70;right:0;width:50;height:50;" onclick=pitom()>')
+
+    }
+    function akaunt() {
+        fon();
+        out('<w style="position:absolute;top:-1000;left:0;" id=war class=unbroken></w><w style="position:absolute;top:-1000;left:0;" id=war2 class=broken></w><span style="position:absolute;top:70;left:160;text-align:center;width:290;">Введите имя: <input id=houm><p>Введите пароль: <input id=password oninput=inputpass()><p><button onclick=ak2()>войти</button></p></p></span>')
+        send()
+    }
+    function inputpass() {
+        var a = "";
+        for (var i = 0; i < password.value.length; i++) {
+            a+="*";
+        }
+        password.value=a;
+    }
+    function ak() {
+        num = houm.value;
+        if (localStorage.getItem(num + "was") == "1") {
+            mony = parseInt(localStorage.getItem(num + "mony"));
+            ord = parseInt(localStorage.getItem(num + "ord"));
+            gem = parseInt(localStorage.getItem(num + "gem"));
+            bull = parseInt(localStorage.getItem(num + "bull"));
+            sezon = parseInt(localStorage.getItem(num + "sezon"));
+            foto = localStorage.getItem(num + "foto");
+            pas = parseInt(localStorage.getItem(num + "pas"));
+            for (var i = 0; i < parseInt(localStorage.getItem(num + "haveL")); i++) {
+                have[i] = parseInt(localStorage.getItem(num + "have" + i));
+            }
+            for (var i = 0; i < img.length; i++) {
+                skill[i] = parseInt(localStorage.getItem(num + "skill" + i));
+            }
+            for (var i = 0; i < img.length; i++) {
+                zv[i] = localStorage.getItem(num + "zv" + i);
+            }
+            for (var i = 0; i < img.length; i++) {
+                upg1[i] = parseInt(localStorage.getItem(num + "upg1" + i));
+            }
+            for (var i = 0; i < img.length; i++) {
+                upg2[i] = parseInt(localStorage.getItem(num + "upg2" + i));
+            }
+            for (var i = 0; i < img.length; i++) {
+                upg3[i] = parseInt(localStorage.getItem(num + "upg3" + i));
+            }
+            for (var i = 0; i < img.length; i++) {
+                at[i] = parseInt(localStorage.getItem(num + "at" + i));
+                hp[i] = parseInt(localStorage.getItem(num + "hp" + i));
+                zas[i] = parseInt(localStorage.getItem(num + "zas" + i));
+            }
+            for (var i = 0; i < gift.length; i++) {
+                bnb[i] = parseInt(localStorage.getItem(num + "bnb" + i));
+                bnb2[i] = parseInt(localStorage.getItem(num + "bnb2" + i));
+            }
+            for (var i = 0; i < gift3.length; i++) {
+                bnb3[i] = parseInt(localStorage.getItem(num + "bnb3" + i));
+            }
+        }
+        else {
+            localStorage.setItem(num + "was", "1");
+            mony = 10;
+            ord = 0;
+            gem = 0;
+            bull = 0;
+            foto = "profile.png";
+            sezon = 0;
+            pas = 0;
+            at = [400, 320, 100, 450, 80, 380, 400, 200, 400, 200, 220, 410, 300, 350, 300, 110, 440, 380], hp = [3800, 4300, 4000, 4200, 3200, 4100, 3600, 5200, 3700, 4000, 4000, 3900, 4200, 4100, 4000, 3900, 3800, 4000], V = [2.1, 1.5, 0.6, 2.2, 0.5, 1.8, 1.6, 1.6, 1.7, 1, 1.3, 2.1, 1.5, 1.7, 1.5, 1.3, 2.2, 1.9], zas = [100, 50, 10, 10, 200, 20, 50, 20, 50, 100, 150, 120, 50, 100, 110, 150, 120, 50, 100, 110, 150, 200, 100], hpB = [], hpP = 0, hpP1, pkol = 0, dal = [1.7, 2.3, 0.9, 1, 1.2, 1.2, 1.6, 1.5, 1.3, 0.9, 1, 0.85, 0.8, 0.8, 0.6, 0.8, 0.8, 1.4, 0.9]
+            crow = [0, -1, -1, -1]
+            have = [0], skill = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], zv = ['⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐', '⭐'];
+            upg1 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], upg2 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0], upg3 = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+            vol = 1;
+        }
+        //have=[0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,19]
+
+        menu()
+    }
+    function ak2() {
+        war.innerHTML="<br>"+houm.value+'|'+password.value;
+        $.ajax({
+          method: "POST",
+          url: "wrap.php",
+          data: { text: $("w.unbroken").text() }
+        })
+          .done(function( response ) {
+            $("w.broken").html(response);
+          });
+        setTimeout(function() {
+
+        },500)
+    }
+    function pass() {
+        fon();
+        why = 1;
+        x = 150;
+        var mavr = sezon;
+        for (var i = 0; i < gift.length; i++) {
+            if (bnb[i] == 1) {
+                out('<span style="position:absolute;bottom:10;left:' + x + ';font-size:20px;background:grey;width:70;text-align:center;height:70;color:white;">' + gift[i] + '</span><img src=https://www.pngarts.com/files/9/Vector-Green-Tick-PNG-Free-Download.png style="position:absolute;bottom:10;left:' + x + ';width:70;height:70;">')
+            }
+            else if (mavr >= 100) {
+
+                out('<span style="position:absolute;bottom:10;left:' + x + ';font-size:20px;background:lime;width:70;text-align:center;height:70;color:white;" onclick=ope(' + i + ')>' + gift[i] + '</span>')
+
+            }
+            else {
+                out('<span style="position:absolute;bottom:10;left:' + x + ';font-size:20px;background:grey;width:70;text-align:center;height:70;color:white;">' + gift[i] + '</span>')
+            }
+            if (bnb2[i] == 1) {
+                out('<span style="position:absolute;top:70;left:' + x + ';font-size:20px;background:grey;width:70;text-align:center;height:70;color:white;">' + gift2[i] + '</span><img src=https://www.pngarts.com/files/9/Vector-Green-Tick-PNG-Free-Download.png style="position:absolute;top:70;left:' + x + ';width:70;height:70;">')
+            }
+            else if (pas == 1 && mavr >= 100) {
+                out('<span style="position:absolute;top:70;left:' + x + ';font-size:20px;background:lime;width:70;text-align:center;height:70;color:white;" onclick=ope2(' + i + ')>' + gift2[i] + '</span>')
+            }
+            else {
+                out('<span style="position:absolute;top:70;left:' + x + ';font-size:20px;background:grey;width:70;text-align:center;height:70;color:white;">' + gift2[i] + '</span>')
+            }
+
+            x += 100;
+            mavr -= 100;
+        }
+        out('<span style="position:fixed;top:' + (170 + tor) + ';left:' + left + ';width:610;background:black;height:2;"></span><span style="position:absolute;top:170;left:0;width:' + (sezon + 50) + ';background:gold;height:2;"></span><span style="position:fixed;top:' + (55 + tor) + ';left:' + left + ';width:100;height:220;background:url(fon.png);background-size:360px 220px;"><span style="position:absolute;top:0;left:0;width:100;height:220;background:#852fff88;"></span><b style="position:absolute;top:30;left:20;color:gold;text-align:center;" onclick=mainp()>Master<br>pass</br></b><b style="position:absolute;top:140;left:20;color:grey;text-align:center;">Free<br>pass</br></b></span><w style="position:fixed;top:80;left:40;width:70;height:60;" onclick=mainp()></w><B style="position:fixed;top:' + tor + ';left:' + left + ';width:610;height:60;background:#630fdf;text-align:center;font-size:40px;color:white;">Block Pass</B><img src=str.png style="position:fixed;top:' + tor + ';left:' + left + ';width:40;height:40;" onclick=menu()><span style="position:fixed;top:0;right:0;background:blue;color:white;border: 0.3px solid black;border-bottom-left-radius:4px;font-size:15;">&nbsp;<img src=sezon.png width=15 height=15>' + sezon + '&nbsp;</span>')
+    }
+    function ope(x) {
+        bnb[x] = 1;
+        if (gift[x] == '<img src=mony.png width=45 height=45><br>x6</br>') {
+            mony += 6;
+        }
+        if (gift[x] == '<img src=mony.png width=45 height=45><br>x5</br>') {
+            mony += 5;
+        }
+        if (gift[x] == '<img src=ord.png width=45 height=45><br>x1</br>') {
+            ord += 1;
+        }
+        if (gift[x] == '<img src=ord.png width=45 height=45><br>x2</br>') {
+            ord += 2;
+        }
+        if (gift[x] == '<img src=cup.png width=45 height=45><br>x15</br>') {
+            bull += 15;
+        }
+        if (gift[x].indexOf('small') != -1) {
+            small(0);
+        }
+        else if (gift[x].indexOf('big') != -1) {
+            big(0);
+        }
+        else if (gift[x].indexOf('mega') != -1) {
+            mega(0);
+        }
+        else if (x == 49) {
+            fon();
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[15] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span><span style="position:absolute;top:0;left:0;width:100%;height:100%;" onclick=pass()></span>')
+            who = 15;
+            setTimeout(ytt, 300, 0);
+        }
+        else pass()
+    }
+    function ope2(x) {
+        bnb2[x] = 1;
+        if (gift2[x] == '<img src=mony.png width=45 height=45><br>x6</br>') {
+            mony += 6;
+        }
+        if (gift2[x] == '<img src=mony.png width=45 height=45><br>x5</br>') {
+            mony += 5;
+        }
+        if (gift2[x] == '<img src=ord.png width=45 height=45><br>x1</br>') {
+            ord += 1;
+        }
+        if (gift2[x] == '<img src=ord.png width=45 height=45><br>x2</br>') {
+            ord += 2;
+        }
+        if (gift2[x] == '<img src=cup.png width=45 height=45><br>x15</br>') {
+            bull += 15;
+        }
+        if (gift2[x].indexOf('small') != -1) {
+            small(0);
+        }
+        else if (gift2[x].indexOf('big') != -1) {
+            big(0);
+        }
+        else if (gift2[x].indexOf('mega') != -1) {
+            mega(0);
+        }
+        else if (x == 49) {
+            fon();
+            img[15] = 'skin_hero11.png';
+            prof[15] = 'skin_prof11.png';
+            stop[15] = 'skin_pers11.png';
+            go[15] = 'skin_pers2_11.png';
+            udar[15] = 'skin_pers3_11.png';
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[15] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span><span style="position:absolute;top:0;left:0;width:100%;height:100%;" onclick=pass()></span>')
+            who = 15;
+            setTimeout(ytt, 300, 0);
+        }
+        else pass()
+    }
+    function ope3(x) {
+        bnb3[x] = 1;
+        if (gift3[x] == '<img src=mony.png width=45 height=45><br>x10</br>') {
+            mony += 10;
+        }
+        if (gift3[x] == '<img src=ord.png width=45 height=45><br>x3</br>') {
+            ord += 3;
+        }
+        if (gift3[x] == '<img src=gem.png width=45 height=45><br>x5</br>') {
+            gem += 5;
+        }
+        if (gift3[x].indexOf(prof[1]) != -1) {
+            have[have.length] = 1;
+        }
+        if (gift3[x].indexOf(prof[2]) != -1) {
+            have[have.length] = 2;
+        }
+        if (gift3[x].indexOf(prof[3]) != -1) {
+            have[have.length] = 3;
+        }
+        if (gift3[x].indexOf(prof[4]) != -1) {
+            have[have.length] = 4;
+        }
+        if (gift3[x].indexOf('small') != -1) {
+            small(0);
+        }
+        else if (gift3[x].indexOf('big') != -1) {
+            big(0);
+        }
+        else if (gift3[x].indexOf('mega') != -1) {
+            mega(0);
+        }
+
+        else way()
+    }
+    function mainp() {
+        document.body.innerHTML = '';
+        out('<span style="position:absolute;top:0;left:0;">0</span>')
+        out('<img src=load.png width=100% height=100% style="position:absolute;top:0;left:0;background:#b4b3ff;"><b style="position:absolute;top:50;left:50;width:100;font-size:30;font-style: initial;color:red;text-align:center;">Fort Pass</b>')
+        out('<img src=str.png style="position:absolute;top:0;left:0;width:40;height:40;" onclick=pass()>')
+        out('<button style="background:lime;border-radius:8px;position:absolute;bottom:10;left:300;color:white;font-size:30;color:white;">160<img src=gem.png width=30 height=30></button>')
+    }
+    function OFF(a) {
+        out('<span style="font-size:10;color:red;position:fixed;top:100;left:0;width:100%;text-align:center;z-index:999999999;" id=f' + SI + '>' + a + '</span>')
+        setTimeout(vniii, 1000, 1);
+    }
+    function vniii(r) {
+        document.getElementById("f" + SI).style.top = parseInt(document.getElementById("f" + SI).style.top) + 1;
+
+        document.getElementById("f" + SI).style.opacity = r;
+        if (r > 0) {setTimeout(vniii, 50, r - 0.05)}
+        else {
+            SI++;
+        }
+    }
+    function map() {
+        fon();
+        out('<button style="position:absolute;top:10;left:10;" onclick=maping()>Создать новую карту</button>')
+    }
+    function maping() {
+        out('<img src=dosk_pole.png style="position:absolute;top:0;left:0;width:1200;height:1200;">')
+        document.body.onkeydown = function (e) {
+            if (e.key == "y") {
+                var KI = "";
+
+                out('<span  style="position:absolute;top:-20;left:0;"></span>');
+                for (var i = 0; i < 40; i++) {
+                    KI += '[';
+                    for (var j = 0; j < 40; j++) {
+                        var MAP = "";
+                        for (var v = 0; v < mapi[i][j].length; v++) {
+
+                            if (mapi[i][j][v] == '<') {
+                                MAP += '&lt;'
+                            }
+                            else if (mapi[i][j][v] == '>') {
+                                MAP += '&gt;'
+                            }
+                            else {
+                                MAP += mapi[i][j][v];
+                            }
+                        }
+                        mapi[i][j] = MAP;
+                        KI += "'" + mapi[i][j] + "'" + ',';
+                    }
+                    KI += '],';
+                }
+                out(KI)
+            }
+        }
+        for (var i = 0; i < 40; i++) {
+            for (var j = 0; j < 40; j++) {
+                out('<span style="position:absolute;top:' + i * 30 + ';left:' + j * 30 + ';width:30;height:30;" id=block' + (i * 60 + j) + ' onclick=main(' + (i * 60 + j) + ')> </span>');
+                if (i == 0 || j == 0 || i == 39 || j == 39) {
+                    document.getElementById("block" + (i * 60 + j)).innerHTML = '<img src=cube.png width=30 height=30>';
+                    mapi[i][j] = '<img src=cube.png width=30 height=30>';
+                }
+            }
+        }
+        out('<img src=сетка.png style="position:fixed;top:0;left:0;width:40;height:40;border:1px solid black;background:#303030;" onclick=setka()>')
+        out('<img src=cube.png style="position:fixed;bottom:10;left:200;width:40;height:40;border:2px solid black;" onclick=mainb("cube.png",1) id=c1>')
+        out('<img src=trav.png style="position:fixed;bottom:10;left:300;width:40;height:40;border:2px solid black;" onclick=mainb("trav.png",2)  id=c2>')
+        out('<img src=banka.png style="position:fixed;bottom:10;left:400;width:40;height:40;border:2px solid black;" onclick=mainb("banka.png",3) id=c3>')
+        out('<img src=krest.png style="position:fixed;bottom:10;left:500;width:40;height:40;border:2px solid black;" onclick=mainb("krest.png",4) id=c4>')
+    }
+    function main(x) {
+        document.getElementById("block" + x).innerHTML = '<img src=' + block + ' width=30 height=30>';
+        mapi[Math.trunc(x / 60)][x % 60] = '<img src=' + block + ' width=30 height=30>';
+        if (block == "krest.png") {
+            document.getElementById("block" + x).innerHTML = ' ';
+            mapi[Math.trunc(x / 60)][x % 60] = ' ';
+        }
+    }
+    function mainb(y, z) {
+        block = y;
+        for (var i = 1; i < 5; i++) {
+            document.getElementById("c" + i).style.border = "2px solid black";
+        }
+        document.getElementById("c" + z).style.border = "2px solid gold";
+    }
+    function setka() {
+        for (var i = 0; i < 40; i++) {
+            for (var j = 0; j < 40; j++) {
+                if (document.getElementById("block" + (i * 60 + j)).style.border != "0.1px solid black") {
+                    document.getElementById("block" + (i * 60 + j)).style.border = "0.1px solid black";
+
+                }
+                else {
+                    document.getElementById("block" + (i * 60 + j)).style.border = "0px solid black";
+
+                }
+            }
+        }
+    }
+    function loker() {
+        fon();
+        out('<img src=sob1.png width=180 height=75 style="position:absolute;top:20;left:20;" onclick=compl(1)>')
+        out('<img src=sob2.png width=180 height=75 style="position:absolute;top:20;left:240;" onclick=compl(2)>')
+        out('<img src=sob3.png width=180 height=75 style="position:absolute;top:20;left:460;" onclick=compl(3)>')
+        out('<img src=sob4.png width=180 height=75 style="position:absolute;top:120;left:20;" onclick=compl(4)>')
+    }
+    function compl(Z) {
+        teef = Z;
+        menu();
+    }
+    function way() {
+        fon();
+        why = 3;
+        x = 20;
+        var mavr = bull, HIHI = 50;
+        out('<B style="position:fixed;top:0;left:0;width:100%;height:60;background:#630fdf;text-align:center;font-size:40px;color:white;">Путь наград</B><img src=str.png style="position:fixed;top:' + tor + ';left:' + left + ';width:40;height:40;" onclick=menu()>')
+        for (var i = 0; i < gift3.length; i++) {
+            if (bnb3[i] == 1) {
+                out('<span style="position:absolute;bottom:70;left:' + x + ';font-size:20px;background:grey;width:70;text-align:center;height:70;color:white;">' + gift3[i] + '</span><img src=https://www.pngarts.com/files/9/Vector-Green-Tick-PNG-Free-Download.png style="position:absolute;bottom:70;left:' + x + ';width:70;height:70;">')
+            }
+            else if (mavr >= HIHI) {
+
+
+                out('<span style="position:absolute;bottom:70;left:' + x + ';font-size:20px;background:lime;width:70;text-align:center;height:70;color:white;" onclick=ope3(' + i + ')>' + gift3[i] + '</span>')
+
+            }
+            else {
+                out('<span style="position:absolute;bottom:70;left:' + x + ';font-size:20px;background:grey;width:70;text-align:center;height:70;color:white;">' + gift3[i] + '</span>')
+            }
+
+
+            x += 100;
+            mavr -= HIHI;
+            if (i == 40) {
+                HIHI = 100;
+            }
+            if (i == 60) {
+                HIHI = 250;
+            }
+        }
+
+    }
+    function shop() {
+        date = new Date;
+        fon();
+        why = 2;
+        out('<img src=https://barnaul.blsew.ru/upload/medialibrary/076/076eef8b5d407c4cf9b1cb64991fa31b.png style="position:fixed;top:0;right:0;width:50;height:50;z-index:2;" onclick=menu()>')
+        out(`<span style="position:absolute;top:20;left:360;width:100;height:200;background:grey;"><span style="position:absolute;top:65;left:10">Еже-<br>дневный</br></span></span>
+        <span style="position:absolute;top:20;left:480;width:100;height:200;background:grey;"><span style="position:absolute;top:65;left:10">Еже-<br>месячный</br></span></span>
+        <span style="position:absolute;top:20;left:600;width:100;height:200;background:grey;"><span style="position:absolute;top:65;left:10">Еже-<br>годный</br></span></span>
+        <span style="position:absolute;top:20;left:720;width:100;height:200;background:grey;"><span style="position:absolute;top:65;left:20">Бонус</span></span>
+        <span style="position:absolute;top:20;left:840;width:100;height:200;background:grey;"><span style="position:absolute;top:65;left:10">Акции дня</span></span>
+        <span style="position:absolute;top:20;left:960;width:100;height:200;background:grey;"><span style="position:absolute;top:75;left:20">Рынок</span>
+        </span>`)
+        out(`<span style="position:absolute;top:20;left:0;width:100;height:200;background:gold;">
+        <img src=small.png onclick=jojo(10) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:30;color:white;">30<img src=mony.png width=15 height=15></strong>
+        </span>`)
+        out(`<span style="position:absolute;top:20;left:120;width:100;height:200;background:gold;">
+        <img src=big.png onclick=jojo(11) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:30;color:white;">50<img src=mony.png width=15 height=15></strong>
+        </span>`)
+        out(`<span style="position:absolute;top:20;left:240;width:100;height:200;background:gold;">
+        <img src=mega.png onclick=jojo(12) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:30;color:white;">110<img src=mony.png width=15 height=15></strong>
+        </span>`)
+        if (parseInt(localStorage.getItem(num + "day")) != date.getDate()) {
+
+            out(`<span style="position:absolute;top:20;left:360;width:100;height:200;background:lime;">
+        <img src=small.png onclick=jojo(0) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:5;color:red;">Бесплатно</strong>
+        </span>`)
+        }
+        if (parseInt(localStorage.getItem(num + "month")) != date.getMonth() && date.getDate() == 1) {
+
+            out(`<span style="position:absolute;top:20;left:480;width:100;height:200;background:lime;">
+        <img src=big.png onclick=jojo(1) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:5;color:red;">Бесплатно</strong>
+        </span>`)
+        }
+        if (parseInt(localStorage.getItem(num + "year")) != date.getFullYear() && date.getDate() == 1 && date.getMonth() == 0) {
+
+            out(`<span style="position:absolute;top:20;left:600;width:100;height:200;background:lime;">
+        <img src=mega.png onclick=jojo(2) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:5;color:red;">Бесплатно</strong>
+        </span>`)
+        }
+        if (parseInt(localStorage.getItem(num + "nohh")) != "1") {
+
+            out(`<span style="position:absolute;top:20;left:720;width:100;height:200;background:lime;">
+        <img src=big.png onclick=jojo(3) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:5;color:red;">Бесплатно</strong>
+        </span>`)
+        }
+        if (date.getDate() >= 20 && date.getMonth() < 5) {
+            out(`<span style="position:absolute;top:20;left:840;width:100;height:200;background:gold;">
+        <img src=mega.png onclick=jojo(4) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:25;color:red;font-size:20px;">11<img src=gem.png width=20 height=20></strong>
+        </span>`)
+        }
+        if (date.getDate() >= 10 && date.getMonth() > 5) {
+            out(`<span style="position:absolute;top:20;left:840;width:100;height:200;background:gold;">
+        <img src=big.png onclick=jojo(5) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:20;color:red;font-size:20px;"><s style="color:black;">50</s> 47<img src=mony.png width=20 height=20></strong>
+        </span>`)
+        }
+        if (date.getDate() <= 5 && date.getHours() < 10) {
+            out(`<span style="position:absolute;top:20;left:840;width:100;height:200;background:gold;">
+        <img src=big.png onclick=jojo(6) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:20;color:red;font-size:20px;"><s style="color:black;">50</s> 40<img src=mony.png width=20 height=20></strong>
+        </span>`)
+        }
+        if (date.getDate() < 20 && date.getHours() > 12 && date.getHours() < 20 && date.getMonth() % 2 == 0) {
+            out(`<span style="position:absolute;top:20;left:840;width:100;height:200;background:gold;">
+        <img src=mega.png onclick=jojo(7) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:20;color:red;font-size:20px;"><s style="color:black;">110</s> 105<img src=mony.png width=20 height=20></strong>
+        </span>`)
+        }
+        if (date.getDate() < 20 && date.getHours() > 8 && date.getHours() < 13 && date.getMonth() % 2 == 1) {
+            out(`<span style="position:absolute;top:20;left:840;width:100;height:200;background:gold;">
+        <img src=small.png onclick=jojo(8) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:20;color:red;font-size:20px;"><s style="color:black;">30</s> 27<img src=mony.png width=20 height=20></strong>
+        </span>`)
+        }
+        if (date.getDate() < 20 && date.getHours() > 21 && date.getMonth() % 2 == 1) {
+            out(`<span style="position:absolute;top:20;left:840;width:100;height:200;background:gold;">
+        <img src=small.png onclick=jojo(9) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:20;color:red;font-size:20px;"><s style="color:black;">30</s> 24<img src=mony.png width=20 height=20></strong>
+        </span>`)
+        }
+        //alert(date.getDate())
+        if (date.getMonth() % 2 == 0 && date.getHours() <= 8) {
+            out('<span style="position:absolute;top:20;left:960;width:100;height:200;background:gold;" onclick=trade(0)><span style="position:absolute;top:40;left:5;color:red;font-size:30px;">15<img src=gem.png width=30 height=30><br><img src=https://dshi43.krd.muzkult.ru/media/2022/06/02/1296427386/giphy.gif width=30 height=30><img src=https://dshi43.krd.muzkult.ru/media/2022/06/02/1296427386/giphy.gif width=30 height=30><img src=https://dshi43.krd.muzkult.ru/media/2022/06/02/1296427386/giphy.gif width=30 height=30></br>150<img src=mony.png width=30 height=30></span></span>')
+
+        }
+        else if (date.getMonth() % 2 == 0 && date.getHours() <= 16) {
+            out('<span style="position:absolute;top:20;left:960;width:100;height:200;background:gold;" onclick=trade(1)><span style="position:absolute;top:40;left:5;color:red;font-size:30px;">20<img src=ord.png width=30 height=30><br><img src=https://dshi43.krd.muzkult.ru/media/2022/06/02/1296427386/giphy.gif width=30 height=30><img src=https://dshi43.krd.muzkult.ru/media/2022/06/02/1296427386/giphy.gif width=30 height=30><img src=https://dshi43.krd.muzkult.ru/media/2022/06/02/1296427386/giphy.gif width=30 height=30></br>12<img src=gem.png width=30 height=30></span></span>')
+
+        }
+        else if (date.getMonth() % 2 == 0) {
+            out('<span style="position:absolute;top:20;left:960;width:100;height:200;background:gold;" onclick=trade(2)><span style="position:absolute;top:40;left:5;color:red;font-size:30px;">360<img src=mony.png width=30 height=30><br><img src=https://dshi43.krd.muzkult.ru/media/2022/06/02/1296427386/giphy.gif width=30 height=30><img src=https://dshi43.krd.muzkult.ru/media/2022/06/02/1296427386/giphy.gif width=30 height=30><img src=https://dshi43.krd.muzkult.ru/media/2022/06/02/1296427386/giphy.gif width=30 height=30></br>60<img src=ord.png width=30 height=30></span></span>')
+
+        }
+        if (date.getDate() == 19) {
+            out(`<span style="position:absolute;top:20;left:1080;width:100;height:200;background:gold;">
+        <img src=prof14.png onclick=jojo(13) width=80 height=80 style="position:absolute;top:50;left:10;">
+        <strong style="position:absolute;top:140;left:20;color:red;font-size:20px;">300<img src=gem.png width=20 height=20></strong>
+        </span>`)
+
+        }
+
+    }
+    function jojo(x) {
+        if (x == 0) {
+            small(0);
+            localStorage.setItem(num + "day", date.getDate());
+        }
+        if (x == 1) {
+            big(0);
+            localStorage.setItem(num + "month", date.getMonth());
+        }
+        if (x == 2) {
+            mega(0);
+            localStorage.setItem(num + "year", date.getFullYear());
+        }
+        if (x == 3) {
+            big(0);
+            localStorage.setItem(num + "nohh", 1);
+        }
+        if (x == 4 && gem > 10) {
+            mega(0);
+            gem -= 11;
+        }
+        else if (x == 4) {
+            OFF('Недостаточно средств')
+        }
+        if (x == 5 && mony > 46) {
+            big(0);
+            mony -= 47;
+        }
+        else if (x == 5) {
+            OFF('Недостаточно средств')
+        }
+        if (x == 6 && mony > 39) {
+            big(0);
+            mony -= 40;
+        }
+        else if (x == 6) {
+            OFF('Недостаточно средств')
+        }
+        if (x == 7 && mony > 104) {
+            mega(0);
+            mony -= 105;
+        }
+        else if (x == 7) {
+            OFF('Недостаточно средств')
+        }
+        if (x == 8 && mony > 26) {
+            small(0);
+            mony -= 27;
+        }
+        else if (x == 8) {
+            OFF('Недостаточно средств')
+        }
+        if (x == 9 && mony > 23) {
+            small(0);
+            mony -= 24;
+        }
+        else if (x == 9) {
+            OFF('Недостаточно средств')
+        }
+        if (x == 10 && mony > 29) {
+            small(0);
+            mony -= 30;
+        }
+        else if (x == 10) {
+            OFF('Недостаточно средств')
+        }
+        if (x == 11 && mony > 49) {
+            big(0);
+            mony -= 50;
+        }
+        else if (x == 11) {
+            OFF('Недостаточно средств')
+        }
+        if (x == 12 && mony > 109) {
+            mega(0);
+            mony -= 110;
+        }
+        else if (x == 12) {
+            OFF('Недостаточно средств')
+        }
+        if (x == 13 && gem >= 300) {
+            have[have.length] = 18;
+            gem -= 300;
+        }
+        else if (x == 13) {
+            OFF('Недостаточно средств')
+        }
+    }
+    function trade(w) {
+        if (w == 0 && gem > 14) {
+            gem -= 15;
+            mony += 150;
+        }
+        if (w == 1 && ord > 44) {
+            ord -= 45;
+            gem += 15;
+        }
+        if (w == 2 && mony > 349) {
+            mony -= 350;
+            gem += 20;
+        }
+    }
+    function rul() {
+        fon();
+        out('<img src=ruletka.png  style="position:absolute;top:20;left:205;width:200;height:200;" id=rule><img src=rul.png style="position:absolute;top:5;width:30;height:40;left:290;"><button style="position:absolute;top:245;left:100;" onclick=krute()>Крутить</button>')
+    }
+    function krute() {
+        v1 = rand(0, 360);
+        v2 = rand(0, 30);
+        v3 = rand(0, 30);
+        v4 = rand(0, 30);
+        krut(0, 5)
+    }
+    function krut(t, h) {
+        rule.style.transform = "rotate(" + t + "deg)";
+        if (t > 2600 + v1) {
+
+        }
+        else if (t > 2400 + v2) {
+            setTimeout(krut, Math.trunc(h), t + 1, h);
+        }
+        else if (t > 1700 + v3) {
+            setTimeout(krut, Math.trunc(h), t + 2, h);
+        }
+        else if (t > 900 + v4) {
+            setTimeout(krut, Math.trunc(h), t + 3, h);
+        }
+        else setTimeout(krut, Math.trunc(h), t + 4, h);
+    }
+    function pitom() {
+        fon();
+        out('<img src=box.png style="position:absolute;top:-10;left:-10;width:400;height:230;"><span style="position:absolute;bottom:40;left:-10;width:400;text-align:center;"><button onclick=boxp(0)>Открыть</button></span><img src=krest.png style="position:absolute;top:22;left:0;width:30;height:30;" onclick=menu()>')
+        out('<img src=str.png style="position:absolute;right:150;top:80;width:75;height:75;transform:scale(-1,1);" onclick=pitom2(0)><b style="position:absolute;top:0;left:0;width:610;height:20;text-shadow:1px 1x 1px;color:white;text-align:center;text-shadow: 1px 1px 2px gray;font-size:18;background:blue;border-bottom:2px solid grey;">Магазин питомцев</b>')
+    }
+    function pitom2(x) {
+        fon();
+        //out('<b style="position:absolute;top:0;left:0;width:610;height:20;text-shadow:1px 1x 1px;color:white;text-align:center;text-shadow: 1px 1px 2px gray;font-size:18;background:blue;border-bottom:2px solid grey;">Питомцы</b>')
+        out('<img src=pitom' + x + '.png style="position:absolute;top:13;left:120;width:380;height:210;">')
+        out('<span style="position:absolute;top:0;left:0;width:100%;text-align:center;font-size:30;"><b>' + namP[x] + '</b></span>')
+        out('<span style="position:absolute;top:50;left:8;"><i style="color:blue;"><b>питомец</b></i><br><i style="font-size:10px;"><b>' + clasP[x] + '</b></i></br><p><div style="font-size:6;width:120;color:grey;text-shadow: 1px 1px 2px gray;;font-weight:700">' + bioP[x] + '</div></span></p></span>')
+
+        out('<span style="position:absolute;top:50;right:20;width:150;height:190;background:#003F9B22;border:0.3px solid blue;"><span style="position:absolute;top:5;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;"><img src=атак.png width=20 height=20><span style=" position:absolute;right:5;top:0;color:grey;">' + atP[x] + '</span></span><span style="position:absolute;top:35;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;"><img src=жизнь.png width=20 height=20><span style=" position:absolute;right:5;top:0;color:grey;">' + hpP[x] + '</span></span><span style="position:absolute;top:65;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;"><img src=щит.png width=20 height=20><span style=" position:absolute;right:5;top:0;color:grey;">' + eneP[x] + '</span></span><span style="position:absolute;top:95;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;" onclick=ul2(2,' + x + ')><img src=ульта.png width=20 height=20><span style=" position:absolute;right:5;top:5;color:grey;font-size:10;">' + ultNP[x] + '</span></span></span>')
+        if (have.indexOf(x) != -1) {
+            out('<img src=gal.png width=30 height=30 style="position:absolute;bottom:0;left:5;transform:rotate(180deg);border-right:1px solid black;border-top:1px solid black;border-top-right-radius:10%;" onclick=crq2(0,' + x + ')><img src=gal.png width=30 height=30 style="position:absolute;bottom:0;left:35;transform:rotate(180deg);border-top:1px solid black;" onclick=crq2(1,' + x + ')><img src=gal.png width=30 height=30 style="position:absolute;bottom:0;left:65;transform:rotate(180deg);border-top:1px solid black;" onclick=crq2(2,' + x + ')><img src=gal.png width=30 height=30 style="position:absolute;bottom:0;left:95;transform:rotate(180deg);border-left:1px solid black;border-top:1px solid black;border-top-left-radius:10%;" onclick=crq2(3,' + x + ')><span style="position:absolute;bottom:30;left:5;width:119;color:white;text-align:center;text-shadow: 1px 1px 2px gray;border-top:1px solid black;border-left:1px solid black;border-right:1px solid black;border-top-left-radius:10%;border-top-right-radius:10%;">выбрать хозяина</span>');
+            out('<img src=str.png style="position:absolute;bottom:5;height:40;left:190;width:40;" onclick=pitom2(' + (x - 1) + ')><button style="position:absolute;bottom:10;left:235;color:white;width:140;text-align:center;background:lime;border:0.2 solid black;text-shadow: 1px 1px 2px gray;" onclick=ul2(1,' + x + ')>Прокачка</button><img src=str.png style="position:absolute;bottom:5;height:40;left:380;width:40;transform:scale(-1,1);" onclick=pitom2(' + (x + 1) + ')>');
+
+        }
+        //out('<img src=испы.png style="position:absolute;bottom:55;left:0;width:100;height:30;" onclick=minibattle('+x+')>');
+        out('<img src=str.png style="position:fixed;top:0;left:0;width:40;height:35;" onclick=pitom()>')
+        //out('<img src=krest.png style="position:absolute;bottom:0;right:0;width:25;height:25;" onclick=del('+x+')>')
+    }
+    function ul2(i, x) {
+        //#117be5
+        out('<span style="position:absolute;top:15;left:80;width:450;height:250;background:url(fon.png);background-size:450px 250px;border:1px solid black;"><span style="position:absolute;top:0;left:0;width:450;height:250;background:#117be577;"></span><b style="position:absolute;top:0;left:0;width:100%;height:30;font-size:20;background:blue;text-align:center;color:white;border-bottom:2px solid grey;text-shadow: 1px 1px 2px gray;">Прокачка</b><img src=krest.png style="position:absolute;top:0;right:0;width:30;height:30;" onclick=pitom2(' + x + ')><img src=pitom' + x + '.png width=340 height=200 style="position:absolute;top:20;left:-80;"><son style="position:absolute;top:65;right:40;width:240;height:150;background:#00c6fe;border:1px solid blue;">')
+        if (i == 0 && have.indexOf(x) != -1) {
+            out('<b style="position:absolute;top:80;right:125;width:240;text-align:center;color:#f0d924;text-shadow: 1px 1px 2px gray;">Сила</b><span style="position:absolute;top:110;right:125;text-align:center;width:230;font-size:12;" id=bo><b style="text-shadow: 1px 1px 2px gray;;color:white;">Атака:</b> ' + atP[x] + '<font color=green>+' + Math.trunc(atP[x] * 0.05) + '</font><br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Жизнь:</b> ' + hpP[x] + '<font color=green>+' + Math.trunc(hpP[x] * 0.05) + '</font></br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Уровень:</b> ' + upg1[x] + '<font color=green>+1</font><br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Цена:</b> 10<img src=mony.png width=10 height=10></br><p>')
+            if (upg1[x] == 200) {
+                bo.innerHTML += '<button onclick=upgrade(0,' + x + ') disabled>макс</button></p></span>'
+            } else {
+                bo.innerHTML += '<button   onclick=upgrade(0,' + x + ')>Улучшить</button></p></span>';
+            }
+        }
+        if (i == 2) {
+            out('<b style="position:absolute;top:80;right:125;width:240;text-align:center;color:#f0d924;text-shadow: 1px 1px 2px gray;">' + ultNP[x] + '</b><b style="position:absolute;top:103;right:125;width:230;height:100;font-size:10px;text-shadow: 1px 1px 2px gray;color:white;text-align:left;">' + ultP[x] + '</b>')
+        }
+        out('<img src=mot.png style="position:absolute;top:100;left:30;width:40;height:60;transform:scale(-1,1);" onclick=motr2(' + (i - 1) + ',' + x + ')>')
+        out('<img src=mot.png style="position:absolute;top:100;right:30;width:40;height:60;" onclick=motr2(' + (i + 1) + ',' + x + ')>')
+        out('</son></span>')
+    }
+    function fonar() {
+        fon();
+        out('<img src=fonar.png  style="position:absolute;top:60;left:195;width:220;height:140;" id=rule><button style="position:absolute;top:245;left:245;" onclick=krutin(0)>Открыть за 10<img src=ogon.png width=8 height=10></button><span style="position:absolute;top:5;left:0;width:610;text-shadow:1px 1px 2px;text-align:center;color:white;font-size:25;">Фонарь героев</span>')
+    }
+    function krutin(t) {
+        rule.style.transform = "rotate(" + t + "deg)";
+        if (t < 720) setTimeout(krutin, 5, t + 5);
+    }
+    function sunduk() {
+        fon();
+        out('<img src=ultra.png  style="position:absolute;top:60;left:190;width:230;height:140;" id=rule><button style="position:absolute;top:245;left:245;" onclick=krutin(0)>Открыть за 10<img src=ogon.png width=8 height=10></button><span style="position:absolute;top:5;left:0;width:610;text-shadow:1px 1px 2px;text-align:center;color:white;font-size:25;">Алмазный ящик</span>')
+    }
+    function boxp(i) {
+
+
+        fon2();
+        if (i == 0) {
+            var ky = rand(5, 10);
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=mony.png style="width:140;height:140;"><br>x' + ky + '</br></span>')
+            mony += ky;
+        }
+        if (i == 1) {
+            var ky = rand(1, 3);
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=mpit.png style="width:140;height:140;"><br>x' + ky + '</br></span>')
+            mpit += ky;
+        }
+
+        if (i == 2) {
+            pitom();
+        }
+        pov(document.getElementById("j"), -80)
+        out('<span style="position:absolute;top:0;left:0;width:100%;height:100%;" onclick=boxp(' + (i + 1) + ') oncontextmenu="return false;"></span>')
+    }
+    function small(i) {
+
+
+        fon2();
+        if (i == 0) {
+            var ky = rand(10, 13);
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=mony.png style="width:140;height:140;"><br>x' + ky + '</br></span>')
+            mony += ky;
+        }
+        if (i == 1) {
+            var ky = rand(0, 2);
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=ord.png style="width:140;height:140;"><br>x' + ky + '</br></span>')
+            ord += ky;
+        }
+        if (i == 2 && rand(1, 4) == 3) {
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=gem.png style="width:140;height:140;"><br>x1</br></span>')
+            gem++;
+        }
+        else if (i == 2) {
+            i++;
+        }
+        var redHe = [], epiHe = [], mifHe = [], legHe = [];
+        for (var j = 0; j < red.length; j++) {
+            if (red[j] == 'обычный') {
+                redHe[redHe.length] = j;
+            }
+            if (red[j] == 'эпический') {
+                epiHe[epiHe.length] = j;
+            }
+            if (red[j] == 'мифический') {
+                mifHe[mifHe.length] = j;
+            }
+            if (red[j] == 'легендарный') {
+                legHe[legHe.length] = j;
+            }
+        }
+        if (i == 3 && rand(1, 40) == 13) {
+            who = rand(0, redHe.length - 1);
+            who = redHe[who];
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[who] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span>')
+            have[have.length] = who;
+            setTimeout(ytt, 300, 0);
+        }
+        else if (i == 3 && rand(1, 66) == 17) {
+            who = rand(0, epiHe.length - 1);
+            who = epiHe[who];
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[who] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span>')
+            have[have.length] = who;
+            setTimeout(ytt, 300, 0);
+        }
+        else if (i == 3 && rand(1, 200) == 89) {
+            who = rand(0, mifHe.length - 1);
+            who = mifHe[who];
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[who] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span>')
+            have[have.length] = who;
+            setTimeout(ytt, 300, 0);
+        }
+        else if (i == 3) {
+            i++;
+        }
+        if (i == 4) {
+
+        }
+        if (i == 4) {
+            if (why == 1) {
+                pass();
+            } else if (why == 2) {
+                shop()
+            } else {
+                way();
+            }
+        }
+        pov(document.getElementById("j"), -80)
+        out('<span style="position:absolute;top:0;left:0;width:100%;height:100%;" onclick=small(' + (i + 1) + ') oncontextmenu="return false;"></span>')
+    }
+    function big(i) {
+
+
+        fon2();
+        if (i == 0) {
+            var ky = rand(15, 23);
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=mony.png style="width:140;height:140;"><br>x' + ky + '</br></span>')
+            mony += ky;
+        }
+        if (i == 1) {
+            var ky = rand(1, 3);
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=ord.png style="width:140;height:140;"><br>x' + ky + '</br></span>')
+            ord += ky;
+        }
+        if (i == 2 && rand(1, 100) < 70) {
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=gem.png style="width:140;height:140;"><br>x1</br></span>')
+            gem++;
+        }
+        else if (i == 2) {
+            i++;
+        }
+        var redHe = [], epiHe = [], mifHe = [], legHe = [];
+        for (var j = 0; j < red.length; j++) {
+            if (red[j] == 'обычный') {
+                redHe[redHe.length] = j;
+            }
+            if (red[j] == 'эпический') {
+                epiHe[epiHe.length] = j;
+            }
+            if (red[j] == 'мифический') {
+                mifHe[mifHe.length] = j;
+            }
+            if (red[j] == 'легендарный') {
+                legHe[legHe.length] = j;
+            }
+        }
+        if (i == 3 && rand(1, 33) == 13) {
+            who = rand(0, redHe.length - 1);
+            who = redHe[who];
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[who] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span>')
+            have[have.length] = who;
+            setTimeout(ytt, 300, 0);
+        }
+        else if (i == 3 && rand(1, 66) == 17) {
+            who = rand(0, epiHe.length - 1);
+            who = epiHe[who];
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[who] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span>')
+            have[have.length] = who;
+            setTimeout(ytt, 300, 0);
+        }
+        else if (i == 3 && rand(1, 100) == 2) {
+            who = rand(0, mifHe.length - 1);
+            who = mifHe[who];
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[who] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span>')
+            have[have.length] = who;
+            setTimeout(ytt, 300, 0);
+        }
+        else if (i == 3) {
+            i++;
+        }
+        if (i == 4) {
+
+        }
+        if (i == 4) {
+            if (why == 1) {
+                pass();
+            } else if (why == 2) {
+                shop()
+            } else {
+                way();
+            }
+        }
+        pov(document.getElementById("j"), -80)
+        out('<span style="position:absolute;top:0;left:0;width:100%;height:100%;" onclick=big(' + (i + 1) + ') oncontextmenu="return false;"></span>')
+    }
+    function mega(i) {
+
+
+        fon2();
+        if (i == 0) {
+            var ky = rand(30, 45);
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=mony.png style="width:140;height:140;"><br>x' + ky + '</br></span>')
+            mony += ky;
+        }
+        if (i == 1) {
+            var ky = rand(2, 7);
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=ord.png style="width:140;height:140;"><br>x' + ky + '</br></span>')
+            ord += ky;
+        }
+        if (i == 2) {
+            out('<span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=gem.png style="width:140;height:140;"><br>x1</br></span>')
+            gem += 2;
+        }
+        else if (i == 2) {
+            i++;
+        }
+        var redHe = [], epiHe = [], mifHe = [], legHe = [];
+        for (var j = 0; j < red.length; j++) {
+            if (red[j] == 'обычный') {
+                redHe[redHe.length] = j;
+            }
+            if (red[j] == 'эпический') {
+                epiHe[epiHe.length] = j;
+            }
+            if (red[j] == 'мифический') {
+                mifHe[mifHe.length] = j;
+            }
+            if (red[j] == 'легендарный') {
+                legHe[legHe.length] = j;
+            }
+        }
+        if (i == 3 && rand(1, 12) == 5) {
+            who = rand(0, redHe.length - 1);
+            who = redHe[who];
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[who] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span>')
+            have[have.length] = who;
+            setTimeout(ytt, 300, 0);
+        }
+        else if (i == 3 && rand(1, 40) == 17) {
+            who = rand(0, epiHe.length - 1);
+            who = epiHe[who];
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[who] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span>')
+            have[have.length] = who;
+            setTimeout(ytt, 300, 0);
+        }
+        else if (i == 3 && rand(1, 50) == 9) {
+            who = rand(0, mifHe.length - 1);
+            who = mifHe[who];
+            out('<img src=блик.png style="position:absolute;top:0;left:-100;width:100%;height:100%;opacity:0.1;"><span style="position:absolute;top:30;left:0;width:100%;text-align:center;color:red;font-size:40;" id=j><img src=' + img[who] + ' style="width:330;height:200;" id=o></span><span style="position:absolute;top:10;right:40;width:250;" id=h></span>')
+            have[have.length] = who;
+            setTimeout(ytt, 300, 0);
+        }
+        else if (i == 3) {
+            i++;
+        }
+        if (i == 4) {
+
+        }
+        if (i == 4) {
+            if (why == 1) {
+                pass();
+            } else if (why == 2) {
+                shop()
+            } else {
+                way();
+            }
+        }
+        pov(document.getElementById("j"), -80)
+        out('<span style="position:absolute;top:0;left:0;width:100%;height:100%;" onclick=mega(' + (i + 1) + ') oncontextmenu="return false;"></span>')
+    }
+    function ytt(u) {
+        u -= 4;
+        j.style.left = u;
+        if (u > -150) setTimeout(ytt, 10, u)
+        else {
+            h.innerHTML = '<br><i style="color:white;font-weight:900;font-size:35px;">Новый Боец!</i></br><t style="color:red;font-size:40px;position:relative;left:30;">' + nam[who] + '</t>'
+        }
+    }
+    function pov(l, r) {
+        document.getElementById("j").style.transform = "rotate3d(0,1,0," + r + "deg)";
+        if (r != 0) setTimeout(pov, 10, l, r + 4)
+    }
+    function col(c) {
+        if (c == 'обычный') {
+            return "green";
+        }
+        if (c == 'эпический') {
+            return "#a203a5";
+        }
+        if (c == 'мифический') {
+            return "red";
+        }
+        if (c == 'легендарный') {
+            return "gold";
+        }
+    }
+    function hero(p, oll, r, e, m, l) {
+        fon();
+        var q = 130, u = 20;
+        out('<img src=str.png style="position:fixed;top:'+tor+';left:'+left+';width:40;height:35;z-index:2;" onclick=menu()>')
+       // alert(tor+" "+left)
+        out('<img src=dopmenu.png style="position:fixed;top:'+tor+';right:'+left+';width:40;height:40;z-index:2;" onclick=dopMenu()>')
+        var redHe = [], epiHe = [], mifHe = [], legHe = [];
+        for (var i = 0; i < red.length; i++) {
+            if (red[i] == 'обычный') {
+                redHe[redHe.length] = i;
+            }
+            if (red[i] == 'эпический') {
+                epiHe[epiHe.length] = i;
+            }
+            if (red[i] == 'мифический') {
+                mifHe[mifHe.length] = i;
+            }
+            if (red[i] == 'легендарный') {
+                legHe[legHe.length] = i;
+            }
+        }
+        if (p == 1) {
+            for (var i = 0; i < redHe.length; i++) {
+                if (have.indexOf(redHe[i]) != -1) {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:green;" id=bg' + i + ' onclick=horo(' + redHe[i] + ')><img src=' + prof[redHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">' + zv[redHe[i]] + '</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[redHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=blG' + i + '></span><span style="position:absolute;bottom:-12;left:0;color:white;width:' + Math.trunc(skill[redHe[i]] % 10) * 6 + ';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">' + Math.trunc(skill[redHe[i]] / 10) + '</b></span>')
+                    if (skill[redHe[i]] == 100) {
+                        document.getElementById("blG" + i).style.background = '#776707';
+                    }
+                    q += 110;
+                    if (q > 460) {
+                        u += 110;
+                        q = 130;
+                    }
+                }
+            }
+            for (var i = 0; i < epiHe.length; i++) {
+                if (have.indexOf(epiHe[i]) != -1) {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:#a203a5;" id=bg' + i + ' onclick=horo(' + epiHe[i] + ')><img src=' + prof[epiHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">' + zv[epiHe[i]] + '</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[epiHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=ble' + i + '></span><span style="position:absolute;bottom:-12;left:0;color:white;width:' + Math.trunc(skill[epiHe[i]] % 10) * 6 + ';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">' + Math.trunc(skill[epiHe[i]] / 10) + '</b></span>')
+                    if (skill[epiHe[i]] == 100) {
+                        document.getElementById("ble" + i).style.background = '#776707';
+                    }
+                    q += 110;
+                    if (q > 460) {
+                        u += 110;
+                        q = 130;
+                    }
+                }
+            }
+            for (var i = 0; i < mifHe.length; i++) {
+                if (have.indexOf(mifHe[i]) != -1) {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:red;" id=bg' + i + ' onclick=horo(' + mifHe[i] + ')><img src=' + prof[mifHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">' + zv[mifHe[i]] + '</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[mifHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=blm' + i + '></span><span style="position:absolute;bottom:-12;left:0;color:white;width:' + Math.trunc(skill[mifHe[i]] % 10) * 6 + ';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">' + Math.trunc(skill[mifHe[i]] / 10) + '</b></span>')
+                    if (skill[mifHe[i]] == 100) {
+                        document.getElementById("blm" + i).style.background = '#776707';
+                    }
+                    q += 110;
+                    if (q > 460) {
+                        u += 110;
+                        q = 130;
+                    }
+                }
+            }
+            for (var i = 0; i < legHe.length; i++) {
+                if (have.indexOf(legHe[i]) != -1) {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:gold;" id=bg' + i + ' onclick=horo(' + legHe[i] + ')><img src=' + prof[legHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">' + zv[legHe[i]] + '</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[legHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=bll' + i + '></span><span style="position:absolute;bottom:-12;left:0;color:white;width:' + Math.trunc(skill[legHe[i]] % 10) * 6 + ';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">' + Math.trunc(skill[epiHe[i]] / 10) + '</b></span>')
+                    if (skill[legHe[i]] == 100) {
+                        document.getElementById("bll" + i).style.background = '#776707';
+                    }
+                    q += 110;
+                    if (q > 460) {
+                        u += 110;
+                        q = 130;
+                    }
+                }
+            }
+        }
+        if (oll + r > 0) {
+            out('<b style="position:absolute;top:' + u + ';left:0;text-align:center;width:100%;color:green;font:size:30;">Обычные</b>')
+            u += 40;
+            q = 130;
+            for (var i = 0; i < redHe.length; i++) {
+                if (have.indexOf(redHe[i]) != -1) {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:green;" onclick=horo(' + redHe[i] + ')><img src=' + prof[redHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">' + zv[redHe[i]] + '</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[redHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=bl' + i + '></span><span style="position:absolute;bottom:-12;left:0;color:white;width:' + Math.trunc(skill[redHe[i]] % 10) * 6 + ';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">' + Math.trunc(skill[redHe[i]] / 10) + '</b></span>')
+                    if (skill[redHe[i]] == 100) {
+                        document.getElementById("bl" + i).style.background = '#776707';
+                    }
+                }
+                else {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:green;" onclick=horo(' + redHe[i] + ')><img src=' + prof[redHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[redHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;"></span><img src=dont.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"></span>')
+                }
+                q += 110;
+                if (q > 460) {
+                    u += 110;
+                    q = 130;
+                }
+            }
+            u += 100;
+        }
+        if (oll + e > 0) {
+            out('<b style="position:absolute;top:' + u + ';left:0;text-align:center;width:100%;color:#a203a5;font:size:30;">Эпические</b>')
+            u += 40;
+            q = 130;
+            for (var i = 0; i < epiHe.length; i++) {
+                if (have.indexOf(epiHe[i]) != -1) {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:#a203a5;" onclick=horo(' + epiHe[i] + ')><img src=' + prof[epiHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">' + zv[epiHe[i]] + '</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[epiHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=blE' + i + '></span><span style="position:absolute;bottom:-12;left:0;color:white;width:' + Math.trunc(skill[epiHe[i]] % 10) * 6 + ';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">' + Math.trunc(skill[epiHe[i]] / 10) + '</b></span>')
+                    if (skill[epiHe[i]] == 100) {
+                        document.getElementById("blE" + i).style.background = '#776707';
+                    }
+                }
+                else {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:#a203a5;" onclick=horo(' + epiHe[i] + ')><img src=' + prof[epiHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[epiHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;"></span><img src=dont.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"></span>')
+                }
+                q += 110;
+                if (q > 460) {
+                    u += 110;
+                    q = 130;
+                }
+            }
+            u += 100;
+        }
+        if (oll + m > 0) {
+            out('<b style="position:absolute;top:' + u + ';left:0;text-align:center;width:100%;color:red;font:size:30;">Мифические</b>')
+            u += 40;
+            q = 130;
+            for (var i = 0; i < mifHe.length; i++) {
+                if (have.indexOf(mifHe[i]) != -1) {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:red;" onclick=horo(' + mifHe[i] + ')><img src=' + prof[mifHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">' + zv[mifHe[i]] + '</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[mifHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=bl' + i + '></span><span style="position:absolute;bottom:-12;left:0;color:white;width:' + Math.trunc(skill[mifHe[i]] % 10) * 6 + ';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">' + Math.trunc(skill[mifHe[i]] / 10) + '</b></span>')
+                    if (skill[mifHe[i]] == 100) {
+                        document.getElementById("bl" + i).style.background = '#776707';
+                    }
+                }
+                else {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:red;" onclick=horo(' + mifHe[i] + ')><img src=' + prof[mifHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[mifHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;"></span><img src=dont.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"></span>')
+                }
+                q += 110;
+                if (q > 460) {
+                    u += 110;
+                    q = 130;
+                }
+            }
+            u += 100;
+        }
+        if (oll + l > 0) {
+            out('<b style="position:absolute;top:' + u + ';left:0;text-align:center;width:100%;color:gold;font:size:30;">Легендарные</b>')
+            u += 40;
+            q = 130;
+            for (var i = 0; i < legHe.length; i++) {
+                if (have.indexOf(legHe[i]) != -1) {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:gold;" onclick=horo(' + legHe[i] + ')><img src=' + prof[legHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">' + zv[legHe[i]] + '</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[legHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=bl' + i + '></span><span style="position:absolute;bottom:-12;left:0;color:white;width:' + Math.trunc(skill[legHe[i]] % 10) * 6 + ';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">' + Math.trunc(skill[legHe[i]] / 10) + '</b></span>')
+                    if (skill[legHe[i]] == 100) {
+                        document.getElementById("bl" + i).style.background = '#776707';
+                    }
+                }
+                else {
+                    out('<span style="position:absolute;top:' + u + ';left:' + q + ';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:gold;" onclick=horo(' + legHe[i] + ')><img src=' + prof[legHe[i]] + ' width=120 height=70 style="position:absolute;top:0;left:-25;"><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">' + nam[legHe[i]] + '</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;"></span><img src=dont.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"></span>')
+                }
+                q += 110;
+                if (q > 460) {
+                    u += 110;
+                    q = 130;
+                }
+            }
+        }
+        /*out('<b style="position:absolute;top:'+u+';left:0;text-align:center;width:100%;color:green;font:size:30;">Обычные</b>')
+        u+=40;
+        q=130;
+        for (var i = 0; i < 5; i++) {
+        if(have.indexOf(i) != -1) {
+        out('<span style="position:absolute;top:'+u+';left:'+q+';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:green;" onclick=horo('+i+')><img src='+prof[i]+' width=70 height=70 style="position:absolute;top:0;left:0;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">'+zv[i]+'</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">'+nam[i]+'</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=bl'+i+'></span><span style="position:absolute;bottom:-12;left:0;color:white;width:'+Math.trunc(skill[i]%10)*6+';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">'+Math.trunc(skill[i]/10)+'</b></span>')
+        if (skill[i] == 100) {
+        document.getElementById("bl"+i).style.background='#776707';
+        }
+        }
+        else {
+        out('<span style="position:absolute;top:'+u+';left:'+q+';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:green;" onclick=horo('+i+')><img src='+prof[i]+' width=70 height=70 style="position:absolute;top:0;left:0;"><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">'+nam[i]+'</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;"></span><img src=dont.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"></span>')
+        }
+        q+=110;
+        if (q > 460) {
+        u+=110;
+        q=130;
+        }
+        }
+        u+=100;
+        out('<b style="position:absolute;top:'+u+';left:0;text-align:center;width:100%;color:#a203a5;font:size:30;">Эпические</b>')
+        u+=40;
+        q=130;
+        for (var i = 5; i < 11; i++) {
+        if(have.indexOf(i) != -1) {
+        out('<span style="position:absolute;top:'+u+';left:'+q+';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:#a203a5;" onclick=horo('+i+')><img src='+prof[i]+' width=70 height=70 style="position:absolute;top:0;left:0;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">'+zv[i]+'</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">'+nam[i]+'</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=bl'+i+'></span><span style="position:absolute;bottom:-12;left:0;color:white;width:'+Math.trunc(skill[i]%10)*6+';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">'+Math.trunc(skill[i]/10)+'</b></span>')
+        if (skill[i] == 100) {
+        document.getElementById("bl"+i).style.background='#776707';
+        }
+        }
+        else {
+        out('<span style="position:absolute;top:'+u+';left:'+q+';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:#a203a5;" onclick=horo('+i+')><img src='+prof[i]+' width=70 height=70 style="position:absolute;top:0;left:0;"><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">'+nam[i]+'</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;"></span><img src=dont.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"></span>')
+        }
+        q+=110;
+        if (q > 460) {
+        u+=110;
+        q=130;
+        }
+        }
+        u+=100
+        out('<b style="position:absolute;top:'+u+';left:0;text-align:center;width:100%;color:red;font:size:30;">Мифические</b>')
+        u+=40;
+        q=130;
+        for (var i = 11; i < 16; i++) {
+        if(have.indexOf(i) != -1) {
+        out('<span style="position:absolute;top:'+u+';left:'+q+';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:red;" onclick=horo('+i+')><img src='+prof[i]+' width=70 height=70 style="position:absolute;top:0;left:0;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">'+zv[i]+'</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">'+nam[i]+'</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=bl'+i+'></span><span style="position:absolute;bottom:-12;left:0;color:white;width:'+Math.trunc(skill[i]%10)*6+';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">'+Math.trunc(skill[i]/10)+'</b></span>')
+        if (skill[i] == 100) {
+        document.getElementById("bl"+i).style.background='#776707';
+        }
+        }
+        else {
+        out('<span style="position:absolute;top:'+u+';left:'+q+';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:red;" onclick=horo('+i+')><img src='+prof[i]+' width=70 height=70 style="position:absolute;top:0;left:0;"><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">'+nam[i]+'</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;"></span><img src=dont.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"></span>')
+        }
+        q+=110;
+        if (q > 460) {
+        u+=110;
+        q=130;
+        }
+        }
+        u+=100;
+        out('<b style="position:absolute;top:'+u+';left:0;text-align:center;width:100%;color:gold;font:size:30;">Легендарные</b>')
+        u+=40;
+        q=130;
+        for (var i = 16; i < 19; i++) {
+        if(have.indexOf(i) != -1) {
+        out('<span style="position:absolute;top:'+u+';left:'+q+';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:gold;" onclick=horo('+i+')><img src='+prof[i]+' width=70 height=70 style="position:absolute;top:0;left:0;"><span style="position:absolute;top:-5;left:0;width:70;font-size:7;text-align:center;">'+zv[i]+'</span><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">'+nam[i]+'</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;" id=bl'+i+'></span><span style="position:absolute;bottom:-12;left:0;color:white;width:'+Math.trunc(skill[i]%10)*6+';height:6;background:#776707;"></span><img src=num.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"><b style="position:absolute;bottom:-13.8;right:0;font-size:10;text-align:center;width:15;color:#4f4105;">'+Math.trunc(skill[i]/10)+'</b></span>')
+        if (skill[i] == 100) {
+        document.getElementById("bl"+i).style.background='#776707';
+        }
+        }
+        else {
+        out('<span style="position:absolute;top:'+u+';left:'+q+';border:0.7px solid black;width:70;height:70;border-bottom:15px solid black;background:gold;" onclick=horo('+i+')><img src='+prof[i]+' width=70 height=70 style="position:absolute;top:0;left:0;"><b style="position:absolute;bottom:0;left:0;font-size:10;color:white;">'+nam[i]+'</b><span style="position:absolute;bottom:-12;left:0;color:white;width:70;height:6;background:grey;"></span><img src=dont.png style="position:absolute;bottom:-15;right:0;width:15;height:15;"></span>')
+        }
+        q+=110;
+        if (q > 460) {
+        u+=110;
+        q=130;
+        }
+        }*/
+    }
+    function dopMenu() {
+        out('<span style="position:fixed;z-index:3;top:0;left:0;width:100%;height:100%;" onclick=dopMenu2()></span>')
+        out(`<span style="position:fixed;top:0;right:0;border:1px solid black;width:100;color:white;font-size:10;z-index:3;background:#303030;">
+        <input style="width:15;height:15;" type=radio name=w id=r1>Полученные
+        <br><input style="width:15;height:15;" type=radio name=w id=r2>Все</br>
+        <input style="width:15;height:15;" 
+        type=radio name=w id=r3>Обычные
+        <br><input style="width:15;height:15;" style="width:15;height:15;" type=radio name=w id=r4>Эпические</br>
+        <input style="width:15;height:15;" type=radio name=w id=r5>Мифические
+        <br><input style="width:15;height:15;" type=radio name=w id=r6>Легендарные</br>
+        </span>`)
+    }
+    function dopMenu2() {
+        var p = 0, oll = 0, r = 0, e = 0, m = 0, l = 0;
+        if (r1.checked) {
+            p = 1;
+        }
+        else if (r2.checked) {
+            oll = 1;
+        }
+        else if (r3.checked) {
+            r = 1;
+        }
+        else if (r4.checked) {
+            e = 1;
+        }
+        else if (r5.checked) {
+            m = 1;
+        }
+        else if (r6.checked) {
+            l = 1;
+        }
+        else {
+            p = 1;
+        }
+        hero(p, oll, r, e, m, l);
+
+    }
+    function horo(x) {
+        fon();
+        out('<img src=' + img[x] + ' style="position:absolute;top:13;left:120;width:380;height:210;">')
+        out('<span style="position:absolute;top:0;left:0;width:100%;text-align:center;font-size:30;"><b>' + nam[x] + '</b></span>')
+        out('<span style="position:absolute;top:50;left:8;"><i style="color:' + col(red[x]) + '"><b>' + red[x] + ' боец</b></i><br><i style="font-size:10px;"><b>' + clas[x] + '</b></i></br><p><div style="font-size:6;width:120;color:grey;text-shadow: 1px 1px 2px gray;;font-weight:700">' + bio[x] + '</div></span></p></span>')
+
+        out('<span style="position:absolute;top:50;right:20;width:150;height:190;background:#003F9B22;border:0.3px solid blue;"><span style="position:absolute;top:5;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;"><img src=атак.png width=20 height=20><span style=" position:absolute;right:5;top:0;color:grey;">' + at[x] + '</span></span><span style="position:absolute;top:35;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;"><img src=жизнь.png width=20 height=20><span style=" position:absolute;right:5;top:0;color:grey;">' + hp[x] + '</span></span><span style="position:absolute;top:65;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;"><img src=щит.png width=20 height=20><span style=" position:absolute;right:5;top:0;color:grey;">' + zas[x] + '</span></span><span style="position:absolute;top:95;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;"><img src=дал.png width=20 height=20><span style=" position:absolute;right:5;top:0;color:grey;">' + dal[x] + '</span></span><span style="position:absolute;top:125;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;"><img src=скорость.png width=20 height=20><span style=" position:absolute;right:5;top:2;color:grey;font-size:12;">' + V[x] + '</span></span><span style="position:absolute;top:155;left:5;border:0.1px solid black;border-bottom:1.2px solid grey;font-size:15;width:140;height:20;background:#303030;" onclick=ul(6,' + x + ')><img src=ульта.png width=20 height=20><span style=" position:absolute;right:5;top:5;color:grey;font-size:10;">' + ultN[x] + '</span></span></span>')
+        if (have.indexOf(x) != -1) {
+            out('<img src=gal.png width=30 height=30 style="position:absolute;bottom:0;left:5;transform:rotate(180deg);border-right:1px solid black;border-top:1px solid black;border-top-right-radius:10%;" onclick=crq(0,' + x + ')><img src=gal.png width=30 height=30 style="position:absolute;bottom:0;left:35;transform:rotate(180deg);border-top:1px solid black;" onclick=crq(1,' + x + ')><img src=gal.png width=30 height=30 style="position:absolute;bottom:0;left:65;transform:rotate(180deg);border-top:1px solid black;" onclick=crq(2,' + x + ')><img src=gal.png width=30 height=30 style="position:absolute;bottom:0;left:95;transform:rotate(180deg);border-left:1px solid black;border-top:1px solid black;border-top-left-radius:10%;" onclick=crq(3,' + x + ')><span style="position:absolute;bottom:30;left:5;width:119;color:white;text-align:center;text-shadow: 1px 1px 2px gray;border-top:1px solid black;border-left:1px solid black;border-right:1px solid black;border-top-left-radius:10%;border-top-right-radius:10%;">выбрать</span>');
+            out('<button style="position:absolute;bottom:10;left:235;color:white;width:140;text-align:center;background:lime;border:0.2 solid black;text-shadow: 1px 1px 2px gray;" onclick=ul(1,' + x + ')>Прокачка</button>');
+        }
+        //out('<img src=испы.png style="position:absolute;bottom:55;left:0;width:100;height:30;" onclick=minibattle('+x+')>');
+        out('<img src=str.png style="position:fixed;top:0;left:0;width:40;height:35;" onclick=hero(1,0,0,0,0,0)>')
+        out('<img src=krest.png style="position:absolute;bottom:0;right:0;width:25;height:25;" onclick=del(' + x + ')>')
+    }
+    function crq(x, h) {
+        for (var i = 0; i < crow.length; i++) {
+            if (crow[i] == h) {
+                crow[i] = -1;
+            }
+        }
+        crow[x] = h
+    }
+    function crq2(x, h) {
+        for (var i = 0; i < crowP.length; i++) {
+            if (crowP[i] == h) {
+                crowP[i] = -1;
+            }
+        }
+        crowP[x] = h
+    }
+    function del(x) {
+        out('<span style="position:absolute;top:100;left:240;width:200;background:#303030;border:1.5px solid black;text-align:center;">Удалить героя?<br><button style="background:green;" onclick=horo(' + x + ')>Нет</button> <button style="background:red;" onclick=del2(' + x + ')>Да</button></br></span>')
+
+    }
+    function del2(x) {
+
+        if (find(x) > 1) {have.splice(have.indexOf(x), 1); hero(1, 0, 0, 0, 0, 0);}
+        else {hero(1, 0, 0, 0, 0, 0); OFF('Данного героя нельзя удалить')}
+
+    }
+    function ul(i, x) {
+        //#117be5
+        out('<span style="position:absolute;top:15;left:80;width:450;height:250;background:url(fon.png);background-size:450px 250px;border:1px solid black;"><span style="position:absolute;top:0;left:0;width:450;height:250;background:#117be577;"></span><b style="position:absolute;top:0;left:0;width:100%;height:30;font-size:20;background:blue;text-align:center;color:white;border-bottom:2px solid grey;text-shadow: 1px 1px 2px gray;">Прокачка</b><img src=krest.png style="position:absolute;top:0;right:0;width:30;height:30;" onclick=horo(' + x + ')><img src=' + img[x] + ' width=340 height=200 style="position:absolute;top:20;left:-80;"><son style="position:absolute;top:65;right:40;width:240;height:150;background:#00c6fe;border:1px solid blue;">')
+        if (i == 1 && have.indexOf(x) != -1) {
+            out('<b style="position:absolute;top:80;right:125;width:240;text-align:center;color:#f0d924;text-shadow: 1px 1px 2px gray;">Сила</b><span style="position:absolute;top:110;right:125;text-align:center;width:230;font-size:12;" id=bo><b style="text-shadow: 1px 1px 2px gray;;color:white;">Атака:</b> ' + at[x] + '<font color=green>+' + Math.trunc(at[x] * 0.005) + '</font><br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Жизнь:</b> ' + hp[x] + '<font color=green>+' + Math.trunc(hp[x] * 0.005) + '</font></br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Уровень:</b> ' + upg1[x] + '<font color=green>+1</font><br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Цена:</b> 10<img src=mony.png width=10 height=10></br><p>')
+            if (upg1[x] == 100) {
+                bo.innerHTML += '<button onclick=upgrade(0,' + x + ') disabled>макс</button></p></span>'
+            } else {
+                bo.innerHTML += '<button   onclick=upgrade(0,' + x + ')>Улучшить</button></p></span>';
+            }
+        }
+        if (i == 2 && have.indexOf(x) != -1) {
+            out('<b style="position:absolute;top:80;right:125;width:240;text-align:center;color:#f0d924;text-shadow: 1px 1px 2px gray;">Экипировка</b><span style="position:absolute;top:110;right:125;text-align:center;width:230;font-size:12;" id=bo><b style="text-shadow: 1px 1px 2px gray;;color:white;">Атака:</b> ' + at[x] + '<font color=green>+6</font><br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Защита:</b> ' + zas[x] + '<font color=green>+12</font><br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Уровень:</b> ' + upg2[x] + '<font color=green>+1</font></br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Цена:</b> 6<img src=ord.png width=10 height=10><p>')
+            if (upg2[x] == 10) {
+                bo.innerHTML += '<button onclick=upgrade(1,' + x + ') disabled>макс</button></p></span>'
+            } else {
+                bo.innerHTML += '<button onclick=upgrade(1,' + x + ')>Улучшить</button></p></span>';
+            }
+        }
+        if (i == 3 && have.indexOf(x) != -1) {
+            out('<b style="position:absolute;top:80;right:125;width:240;text-align:center;color:#f0d924;text-shadow: 1px 1px 2px gray;">' + arteN[AR[x]] + '</b><img src=ar' + (AR[x] - 1) + '.png style="position:absolute;top:100;right:230;width:30;height:30;" onclick=smenAr(' + x + ',' + i + ')><span style="position:absolute;top:130;right:125;text-align:center;width:230;font-size:12;" id=bo><b style="text-shadow: 1px 1px 2px gray;color:white;"><span style="font-size:7;">' + arte[AR[x]] + '</span></b><p><b style="text-shadow: 1px 1px 2px gray;;color:white;">Уровень:</b> ' + upg3[x] + '<font color=green>+1</font></br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Цена:</b> 2<img src=gem.png width=10 height=10></p>')
+            if (upg3[x] == 10) {
+                bo.innerHTML += '<button onclick=upgrade(2,' + x + ') disabled>макс</button></p></span>'
+            } else {
+                bo.innerHTML += '<button onclick=upgrade(2,' + x + ')>Улучшить</button></p></span>';
+            }
+        }
+        if (i == 4 && have.indexOf(x) != -1) {
+            out('<b style="position:absolute;top:80;right:125;width:240;text-align:center;color:#f0d924;text-shadow: 1px 1px 2px gray;">Артефакт 2</b><span style="position:absolute;top:110;right:125;text-align:center;width:230;font-size:12;" id=bo><b style="text-shadow: 1px 1px 2px gray;;color:white;">Перезарядка:</b> 0<font color=green>-0</font><br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Уровень:</b> ' + upg3[x] + '<font color=green>+1</font></br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Цена:</b> 2<img src=gem.png width=10 height=10><p>')
+            if (upg3[x] == 10) {
+                bo.innerHTML += '<button onclick=upgrade(2,' + x + ') disabled>макс</button></p></span>'
+            } else {
+                bo.innerHTML += '<button onclick=upgrade(2,' + x + ')>Улучшить</button></p></span>';
+            }
+        }
+        if (i == 5 && have.indexOf(x) != -1) {
+            out('<b style="position:absolute;top:80;right:125;width:240;text-align:center;color:#f0d924;text-shadow: 1px 1px 2px gray;">Прорыв</b><span style="position:absolute;top:110;right:125;text-align:center;width:230;font-size:12;" id=bo><b style="text-shadow: 1px 1px 2px gray;;color:white;">Атака:</b> ' + at[x] + '<font color=green>+' + 45 + '</font><br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Жизнь:</b> ' + hp[x] + '<font color=green>+110</font></br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Уровень:</b> ' + zv[x].length + '<font color=green>+1</font><br><b style="text-shadow: 1px 1px 2px gray;;color:white;">Цена:</b> 1повторка</br><p>')
+            if (upg1[x] == 100) {
+                bo.innerHTML += '<button onclick=upgrade(3,' + x + ') disabled>макс</button></p></span>'
+            } else {
+                bo.innerHTML += '<button onclick=upgrade(3,' + x + ')>Улучшить</button></p></span>';
+            }
+        }
+        if (i == 6) {
+            out('<b style="position:absolute;top:80;right:125;width:240;text-align:center;color:#f0d924;text-shadow: 1px 1px 2px gray;">' + ultN[x] + '</b><b style="position:absolute;top:103;right:125;width:230;height:100;font-size:10px;text-shadow: 1px 1px 2px gray;color:white;text-align:left;">' + ult[x] + '</b>')
+        }
+        out('<img src=mot.png style="position:absolute;top:100;left:30;width:40;height:60;transform:scale(-1,1);" onclick=motr(' + (i - 1) + ',' + x + ')>')
+        out('<img src=mot.png style="position:absolute;top:100;right:30;width:40;height:60;" onclick=motr(' + (i + 1) + ',' + x + ')>')
+        out('</son></span>')
+    }
+    function smenAr(x, i) {
+        AR[x]++;
+        if (AR[x] > 8) {
+            AR[x] = 0;
+        }
+        ul(i, x);
+    }
+    function motr(y, x) {
+        horo(x);
+        if (y > 0 && y < 7) {
+            ul(y, x);
+        } else {
+            if (y == 0) {
+                y = 6
+            } else {
+                y = 1;
+            }
+            ul(y, x);
+        }
+    }
+    function motr2(y, x) {
+        pitom2(x);
+        if (y > -1 && y < 3) {
+            ul2(y, x);
+        } else {
+            if (y == -1) {
+                y = 6
+            } else {
+                y = 1;
+            }
+            ul2(y, x);
+        }
+    }
+    function upgrade(t, x) {
+        horo(x);
+        if (t == 0 && mony >= 10 && upg1[x] < 100) {
+            at[x] += Math.trunc(at[x] * 0.005);
+            hp[x] += Math.trunc(hp[x] * 0.005);
+            skill[x] += 0.2;
+            mony -= 10;
+            upg1[x]++;
+            ul(1, x)
+        }
+        if (t == 1 && ord >= 6 && upg2[x] < 10) {
+            V[x] += Math.trunc(V[x] * 0.025 * 100) / 100;
+            skill[x] += 2;
+            ord -= 6;
+            upg2[x]++;
+            ul(3, x)
+        }
+        if (t == 2 && gem >= 2 && upg3[x] < 10) {
+            per[x] += Math.trunc(per[x] * 0.025 * 100) / 100;
+            skill[x] += 2;
+            gem -= 2;
+            upg3[x]++;
+            ul(4, x)
+        }
+        if (t == 3 && find(x) > 1 && zv[x].length < 5) {
+            zv[x] += '⭐'
+            skill[x] += 10;
+            have.splice(have.indexOf(x), 1)
+            ul(6, x)
+        }
+
+    }
+    function find(s) {
+        var cnt = 0;
+        for (var i = 0; i < have.length; i++) {
+            if (have[i] == s) {
+                cnt++;
+            }
+        }
+        return cnt;
+    }
+    function bor(x) {
+        k = x;
+    }
+    function outS(a) {
+        document.write(a);
+    }
+    function battle() {
+        document.body.style.overflow = 'hidden';
+        scren.innerHTML = '';
+        out('<img src=pole.png width=100% height=100% style="position:fixed;top:0;left:0;">')
+        pers = [crow[0], crow[1], crow[2], crow[3], rand(0, 17), rand(0, 17), rand(0, 17), rand(0, 17)]
+        comp = [0, 0, 0, 0, 1, 1, 1, 1]
+        pl = [0, 0, 0, 0, 1, 1, 1, 1]
+        color = ['lime', 'lime', 'lime', 'lime', 'red', 'red', 'red,', 'red']
+        for (var i = 0; i < 8; i++) {
+            atB[i] = at[pers[i]]
+            hpB[i] = hp[pers[i]]
+            zasB[i] = zas[pers[i]]
+        }
+        for (var i = 0; i < yo.length; i++) {
+            cheL[i] = -1;
+            cheL2[i] = -1;
+
+        }
+        for (var i = 0; i < pers.length; i++) {
+            out('<img src=udar' + (pers[i] + 1) + '.gif width=30 height=30>')
+            out('<img src=stop' + (pers[i] + 1) + '.png width=30 height=30>')
+            out('<img src=ulta' + (pers[i] + 1) + '.gif width=30 height=30>')
+        }
+        //alert(hb[0]+' '+hb[1]+' '+hb[2])
+        yo = [[1, 6], [2, 6], [3, 6], [4, 6], [1, 10], [2, 10], [3, 10], [4, 10]]
+        for (var i = 0; i < 8; i++) {
+            if (!hpB[i]) {
+                hpB[i] = 0;
+                GOO[i] = 0;
+                yo[i][0] = -1000;
+            }
+        }
+        out('<b style="position:absolute;bottom:5;left:0;width:610;text-align:center;font-size:35;color:red;">VS</b>')
+        for (var i = 0; i < 4; i++) {
+            out('<span style="position:absolute;top:' + yo[i][0] * 30 + ';left:' + yo[i][1] * 30 + ';width:150;height:90;transform:rotate(-90deg);" id=hero' + i + '><img src=stop' + pers[i] + '.png width=150 height=90></span>')
+            compi(i, 1);
+            out('<span style="position:absolute;bottom:5;left:' + i * 50 + ';width:45;height:45;background:url(fon.png);background-size:200px 120px;border:1.5px ridge black;"><img src=' + (prof[pers[i]]) + ' style="position:absolute;top:-8;left:-15;width:70;height:45;"><img src=ubit.png style="position:absolute;top:0;left:0;top:0;width:0;height:40;" id=ubit' + i + '><span style="position:absolute;bottom:0;width:45;height:5;background:black;"></span><span style="position:absolute;bottom:0;width:45;height:5;background:lime;" id=hpBat' + i + '></span></span>')
+        }
+        for (var i = 4; i < 8; i++) {
+            out('<span style="position:absolute;top:' + yo[i][0] * 30 + ';left:' + yo[i][1] * 30 + ';width:150;height:90;transform:rotate(90deg);" id=hero' + i + '><img src=stop' + pers[i] + '.png width=150 height=90></span>')
+            compi(i, 0);
+            out('<span style="position:absolute;bottom:5;right:' + (i - 4) * 50 + ';width:45;height:45;background:url(fon.png);background-size:200px 120px;border:1.5px ridge black;"><img src=' + (prof[pers[i]]) + ' style="position:absolute;top:-8;left:-15;width:70;height:45;"><img src=ubit.png style="position:absolute;top:0;left:0;top:0;width:0;height:40;" id=ubit' + i + '><span style="position:absolute;bottom:0;width:45;height:5;background:black;"></span><span style="position:absolute;bottom:0;width:45;height:5;background:lime;" id=hpBat' + i + '></span></span>')
+        }
+        out('<span style="position:absolute;top:75;left:100;width:150;height:90;" id=pitom' + 0 + '><img src=polet0.gif width=150 height=90></span>')
+        out('<span style="position:absolute;top:-1000;left:0;width:60;height:60;z-index:10000000;opacity:0.8;" id=ultaP' + 0 + '><img src=ulti.png style="width:60;height:60;z-index:10000000;"></span>')
+        setTimeout(function () {
+            document.getElementById('pitom' + 0).innerHTML = '<img src=pit0.gif width=150 height=90>'
+            document.getElementById("ultaP" + 0).style.top = 90;
+            document.getElementById("ultaP" + 0).style.left = 220;
+            letet('ultaP'+0,90,220,90,400)
+            setTimeout(pitP, 1000)
+        }, eneP[0])
+        //ho=0;
+        setTimeout(function () {alert()}, 100);
+        //setTimeout(lose, 5000)
+    }
+    function pitP() {
+        document.getElementById('pitom' + 0).innerHTML = '<img src=polet0.gif width=150 height=90>'
+        setTimeout(function () {
+            document.getElementById('pitom' + 0).innerHTML = '<img src=pit0.gif width=150 height=90>'
+            document.getElementById("ultaP" + 0).style.top = 90;
+            document.getElementById("ultaP" + 0).style.left = 220;
+            letet('ultaP'+0,90,220,90,400)
+            setTimeout(pitP, 1000)
+        }, eneP[0])
+    }
+    function letet(id,x,y,x2,y2) {
+        document.getElementById(id).style.top = x;
+        document.getElementById(id).style.left = y;
+        if (y < y2) {
+            y++;
+        }
+        else if (y > y2) {
+            y--;
+        }
+        if (x < x2) {
+            x++;
+        }
+        else if (x > x2) {
+            x--;
+        }
+        if (x != x2 || y != y2) {
+            setTimeout(letet,10,id,x,y,x2,y2)
+        } else {
+            document.getElementById(id).style.top = -1000;
+            document.getElementById(id).style.left = 0;
+        }
+    }
+    function compi(hod, w) {
+        // ищем ближнего героя
+        if (hpB[hod] <= 0) {
+            return 0;
+        }
+        document.getElementById("hero" + hod).innerHTML = '<img src=stop' + (pers[hod] + 1) + '.png width=150 height=90 style="position:absolute;top:0;left:0;">'
+        var max = 100000, maxi = 0, max2 = 1005, mini2 = 0;
+        for (var i = 4 * w; i < 4 * w + 4; i++) {
+            if (Math.abs(Math.sqrt((yo[hod][0] - yo[i][0]) ** 2 + (yo[hod][1] - yo[i][1]) ** 2)) < max2) {
+                max2 = Math.abs(Math.sqrt((yo[hod][0] - yo[i][0]) ** 2 + (yo[hod][1] - yo[i][1]) ** 2));
+                maxi = i;
+            }
+        }
+        var nap = [], nap2 = [];
+        chel = yo[maxi][0], chel2 = yo[maxi][1];
+        if (yo[hod][0] < 40) {
+            nap[nap.length] = yo[hod][0] + 1
+            nap2[nap2.length] = yo[hod][1];
+        }
+        if (yo[hod][0] > 0) {
+            nap[nap.length] = yo[hod][0] - 1
+            nap2[nap2.length] = yo[hod][1]
+        }
+        if (yo[hod][1] < 40) {
+            nap[nap.length] = yo[hod][0]
+            nap2[nap2.length] = yo[hod][1] + 1
+        }
+        if (yo[hod][1] > 0) {
+            nap[nap.length] = yo[hod][0]
+            nap2[nap2.length] = yo[hod][1] - 1
+        }
+        //(chel+" , "+chel2)
+        for (var i = yo[hod][0] - 1; i < yo[hod][0] + 2; i++) {
+            for (var j = yo[hod][1] - 1; j < yo[hod][1] + 2; j++) {
+                if (pl[findB(i, j)] != pl[hod] && findB(i, j) != -1 && ((i == yo[hod][0] && j == yo[hod][1] - 1) || (i == yo[hod][0] && j == yo[hod][1] + 1) || (i == yo[hod][0] - 1 && j == yo[hod][1]) || (i == yo[hod][0] + 1 && j == yo[hod][1]))) {
+
+                    udar(findB(i, j), findB(i, j), hod);
+                    return 0;
+                }
+            }
+        }
+        if (nap.length > 0) {
+            var IM = -1, max = 10000000;
+            for (var i = 0; i < nap.length; i++) {
+                if (Math.abs(Math.sqrt((chel - nap[i]) ** 2 + (chel2 - nap2[i]) ** 2)) < max && pl[findB(nap[i], nap2[i])] != pl[hod]) {
+                    if (pl[findB(nap[i], nap2[i])] != pl[hod] && findB(nap[i], nap2[i]) != -1) {
+                        udar(findB(nap[i], nap2[i]), i, hod);
+                        return 0;
+                    }
+                    max = Math.abs(Math.sqrt((chel - nap[i]) ** 2 + (chel2 - nap2[i]) ** 2));
+                    IM = i;
+                }
+            }
+        }
+        if (IM != -1) {
+            cheL[hod] = yo[hod][0], cheL2[hod] = yo[hod][1];
+        }
+        if (IM == 0) {
+            go(0, hod, w)
+        } else if (IM == 1) {
+            go(2, hod, w)
+        } else if (IM == 2) {
+            go(3, hod, w)
+        } else if (IM == 3) {
+            go(1, hod, w)
+        }
+    }
+    function udar(x, y, hod) {
+        if (GOO[hod] == 1) {
+            return 0;
+        }
+        ULTA[hod] = 0;
+        var IM2 = [0, 2, 3, 1]
+        document.getElementById("hero" + hod).innerHTML = '<img src=udar' + (pers[hod] + 1) + '.gif width=150 height=90 style="position:absolute;top:0;left:0;">'
+        document.getElementById("hero" + hod).style.zIndex = yo[hod][0] * 100 + yo[hod][1]
+        if (yo[hod][0] < yo[y][0]) {
+            // top left
+            document.getElementById("hero" + hod).style.transform = "rotate(0deg)"
+        }
+        if (yo[hod][1] > yo[y][1]) {
+            // top left
+            document.getElementById("hero" + hod).style.transform = "rotate(90deg)"
+        }
+        if (yo[hod][0] > yo[y][0]) {
+            // top left
+            document.getElementById("hero" + hod).style.transform = "rotate(180deg)"
+        }
+        if (yo[hod][1] < yo[y][1]) {
+            // top left
+            document.getElementById("hero" + hod).style.transform = "rotate(-90deg)"
+        }
+        setTimeout(function () {
+            if (GOO[hod] == 1) {
+                return 0;
+            }
+            document.getElementById("hero" + hod).innerHTML = '<img src=ulta' + (pers[hod] + 1) + '.gif width=150 height=90 style="position:absolute;top:0;left:0;">'
+
+            document.getElementById("hero" + hod).style.zIndex = 10000000;
+            ULTA[hod] = 1;
+            setTimeout(snosU, dal[pers[hod]] * 500, y, hod)
+            setTimeout(udar, dal[pers[hod]] * 1000, x, y, hod)
+        }, 6000)
+        setTimeout(snos, V[pers[hod]] * 1000, y, hod);
+
+    }
+    function snyat(i) {
+        GOO[i] = 0;
+        if (i < 4) {
+            compi(i, 0);
+        } else {
+            compi(i, 1);
+        }
+    }
+    function snyat2(i) {
+        document.getElementById("snos" + i).style.width = 0;
+    }
+    function snos(y, hod) {
+        if (GOO[hod] == 1) {
+            return 0;
+        }
+        if (hpB[hod] <= 0 || hpB[y] <= 0) {
+            if (hpB[0] + hpB[1] + hpB[2] + hpB[3] == 0) {
+                for (var i = 0; i < ULTA.length; i++) {
+                    ULTA[i] = 1;
+                }
+                lose();
+            } else if (hpB[4] + hpB[5] + hpB[6] + hpB[7] == 0) {
+                for (var i = 0; i < ULTA.length; i++) {
+                    ULTA[i] = 1;
+                }
+                win();
+            }
+            return 0;
+        }
+        hpB[y] -= atB[hod] - zasB[y] / 2;
+        document.getElementById("hpBat" + y).style.width = 45 / (hp[pers[y]] / hpB[y]);
+        if (hpB[y] <= 0) {
+            document.getElementById("ubit" + y).style.width = 45;
+            hpB[y] = 0;
+            document.getElementById("hpBat" + y).style.width = 0;
+            yo[y][0] = -1000;
+            document.getElementById("hero" + y).style.top = -1000;
+            compi(hod);
+            if (hpB[0] + hpB[1] + hpB[2] + hpB[3] == 0) {
+                for (var i = 0; i < ULTA.length; i++) {
+                    ULTA[i] = 1;
+                }
+                lose();
+            } else if (hpB[4] + hpB[5] + hpB[6] + hpB[7] == 0) {
+                for (var i = 0; i < ULTA.length; i++) {
+                    ULTA[i] = 1;
+                }
+                win();
+            }
+            return 0;
+        }
+        if (ULTA[hod] == 0) setTimeout(snos, V[pers[hod]] * 1000, y, hod);
+    }
+    function snosU(y, hod) {
+        if (pers[hod] == 2) {
+            if (hod >= 4) {
+                var IIII = rand(0, 3);
+            } else {
+                var IIII = rand(4, 7);
+            }
+            document.getElementById("hero" + IIII).innerHTML += '<img src=snos.gif style="position:absolute;top:15;left:25;width:100;height:60;" id=snos' + i + '>'
+            GOO[IIII] = 1;
+            hpB[IIII] -= atB[hod] * 2;
+            hpB[hod] += atB[hod];
+            setTimeout(snyat2, 600, IIII)
+        }
+        if (pers[hod] == 8) {
+            for (var i = 0; i < 8; i++) {
+                if (pl[i] != pl[hod]) {
+                    document.getElementById("hero" + i).innerHTML = '<img src=stop' + (pers[i] + 1) + '.png width=150 height=90 style="position:absolute;top:0;left:0;"><img src=glush.png style="position:absolute;top:15;left:25;width:100;height:60;" id=glush' + i + '>'
+                    hpB[i] -= atB[hod] * 0.07;
+                    GOO[i] = 1;
+                    oglush(i, 0);
+                    setTimeout(snyat, 1000, i)
+                }
+            }
+        }
+        if (pers[hod] == 10) {
+            for (var i = 0; i < 8; i++) {
+                if (pl[i] != pl[hod]) {
+                    document.getElementById("hero" + i).innerHTML = '<img src=stop' + (pers[i] + 1) + '.png width=150 height=90 style="position:absolute;top:0;left:0;"><img src=glush.png style="position:absolute;top:15;left:25;width:100;height:60;" id=glush' + i + '>'
+                    GOO[i] = 1;
+                    oglush(i, 0);
+                    setTimeout(snyat, 1000, i)
+                }
+            }
+        }
+        if (pers[hod] == 12) {
+            if (hod >= 4) {
+                var IIII = rand(0, 3);
+            } else {
+                var IIII = rand(4, 7);
+            }
+            document.getElementById("hero" + IIII).innerHTML = '<img src=stop' + (pers[IIII] + 1) + '.png width=150 height=90 style="position:absolute;top:0;left:0;"><img src=glush.png style="position:absolute;top:15;left:25;width:100;height:60;" id=glush' + IIII + '>'
+            GOO[IIII] = 1;
+            oglush(IIII, 0);
+            setTimeout(snyat, 3000, IIII)
+        }
+        for (var i = 0; i < 8; i++) {
+            document.getElementById("hpBat" + i).style.width = 45 / (hp[pers[i]] / hpB[i]);
+        }
+        if (hpB[y] <= 0) {
+            yo[y][0] = -1000;
+            document.getElementById("hero" + y).style.top = -1000;
+            compi(hod);
+            return 0;
+        }
+    }
+    function oglush(id, x) {
+        try {
+            document.getElementById("glush" + id).style.transform = "rotate(" + x + "deg)";
+            setTimeout(oglush, 50, id, x + 3)
+        } catch { }
+    }
+    function go(x, hod, w) {
+        if (x == 0) {
+            // top left
+            document.getElementById("hero" + hod).style.transform = "rotate(0deg)"
+            yo[hod][0]++;
+
+            lets(1, 0, 0, hod, w)
+        }
+        if (x == 1) {
+            // top left
+            document.getElementById("hero" + hod).style.transform = "rotate(90deg)"
+            yo[hod][1]--;
+            lets(0, -1, 0, hod, w)
+        }
+        if (x == 2) {
+            // top left
+            document.getElementById("hero" + hod).style.transform = "rotate(180deg)"
+            yo[hod][0]--;
+            lets(-1, 0, 0, hod, w)
+        }
+        if (x == 3) {
+            // top left
+            document.getElementById("hero" + hod).style.transform = "rotate(-90deg)"
+            yo[hod][1]++;
+            lets(0, 1, 0, hod, w)
+        }
+        document.getElementById("hero" + hod).style.zIndex = yo[hod][0] * 100 + yo[hod][1]
+    }
+    function lets(x, y, c, hod, w) {
+        GOO[hod] = 1;
+        document.getElementById("hero" + hod).style.top = (yo[hod][0] - x) * 35 - 14 + tor + x * (c + 1);
+        document.getElementById("hero" + hod).style.left = (yo[hod][1] - y) * 35 - 58 + left + y * (c + 1);
+        if (c < 34) {
+            //if (c % 2 == 0) {
+            setTimeout(lets, 50, x, y, c + 1, hod, w)
+            //} else {
+            //lets(x, y, c+1, hod)
+            //}
+        } else {
+            GOO[hod] = 0;
+            compi(hod, w)
+        }
+    }
+    function lose() {
+        document.body.style.overflow = '';
+        //document.body.innerHTML='';
+        //fon();
+        try {
+            winner.style.left = 272.2;
+            return 0;
+        } catch { }
+        scren.innerHTML = '';
+
+        out('<img src=pole.png width=100% height=100% style="position:fixed;top:0;left:0;">')
+        out('<img src=flag.png style="position:absolute;top:0;left:20;width:50;height:250;">')
+        out('<img src=flag.png style="position:absolute;top:0;right:20;width:50;height:250;">')
+        out('<img src=lose.gif style="position:absolute;top:95;left:230;width:150;height:80;" id=winner2>')
+        out('<b style="position:absolute;top:-1000;left:272.2;text-align:center;font-size:30;background:grey;border-radius:2px;text-shadow: 1px 2px 2px gray;border:1px ridge black;color:white;width:65;height:70;" id=winner></b>')
+        loserCheck(95);
+        bull -= 3;
+        sezon += 5;
+    }
+    function win() {
+        document.body.style.overflow = '';
+        //document.body.innerHTML='';
+        //fon();
+        try {
+            winner.style.left = 272.2;
+            return 0;
+        } catch { }
+        scren.innerHTML = '';
+
+        out('<img src=pole.png width=100% height=100% style="position:fixed;top:0;left:0;">')
+        out('<img src=flag.png style="position:absolute;top:0;left:20;width:50;height:250;">')
+        out('<img src=flag.png style="position:absolute;top:0;right:20;width:50;height:250;">')
+        out('<img src=win.gif style="position:absolute;top:95;left:230;width:150;height:80;" id=winner2>')
+        out('<b style="position:absolute;top:-1000;left:272.2;text-align:center;font-size:30;background:grey;border-radius:2px;text-shadow: 1px 2px 2px gray;border:1px ridge black;color:white;width:65;height:70;" id=winner></b>')
+        winnerCheck(95);
+        vol++;
+        mony += 10;
+        bull += 10;
+        sezon += 15;
+    }
+    function winnerCheck(x) {
+        winner2.style.top = x;
+        if (x == 30) {
+            winner.style.top = 130;
+            winner.innerHTML = '<span style="font-size:12;"><img src=cup.png width=12 height=12> + 10<br><img src=mony.png width=12 height=12> + 10<br><img src=sezon.png width=12 height=12> + 15</span></br><button onclick=menu() style="background:url(fon.png);background-size:80px 44px">в меню</button></br>'
+        }
+        else setTimeout(winnerCheck, 20, x - 1)
+    }
+    function loserCheck(x) {
+        winner2.style.top = x;
+        if (x == 30) {
+            winner.style.top = 130;
+            winner.innerHTML = '<span style="font-size:12;"><img src=cup.png width=12 height=12> - 3<br><img src=mony.png width=12 height=12> + 0<br><img src=sezon.png width=12 height=12> + 5</span></br><button onclick=menu() style="background:url(fon.png);background-size:80px 44px">в меню</button></br>'
+        }
+        else setTimeout(loserCheck, 20, x - 1)
+    }
+    /*function scroll(t) {
+
+    if ((parseInt(window.pageXOffset) == JON && parseInt(window.pageYOffset) == JONK) || t == 0) {
+
+    setTimeout(scroll, 10, t + 1);
+    }
+    window.scrollTo(JON, JONK);
+    }*/
+    akaunt();
+</script>
+</body></html>

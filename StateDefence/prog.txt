@@ -1,0 +1,41 @@
+foto=`<?php require 'wrap.php'; $lines = file("akaunt/$output.txt"); echo explode('#', $lines[0])[0]; ?>`;
+time=parseInt(`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[1]; ?>`);
+gem=parseInt(`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[2]; ?>`);
+mony=parseInt(`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[3]; ?>`);
+ord=parseInt(`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[4]; ?>`);
+have=`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[5]; ?>`;
+have.split(',');
+for (var i = 0; i < have.length; i++) {
+    have[i] = parseInt(have[i]);
+}
+skill=`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[5]; ?>`;
+skill.split(',');
+for (var i = 0; i < skill.length; i++) {
+    skill[i] = parseInt(skill[i]);
+}
+at=`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[5]; ?>`;
+at.split(',');
+for (var i = 0; i < at.length; i++) {
+    at[i] = parseInt(at[i]);
+}
+hp=`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[5]; ?>`;
+hp.split(',');
+for (var i = 0; i < hp.length; i++) {
+    hp[i] = parseInt(hp[i]);
+}
+V=`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[5]; ?>`;
+V.split(',');
+for (var i = 0; i < V.length; i++) {
+    V[i] = parseInt(V[i]);
+}
+zas=`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[5]; ?>`;
+zas.split(',');
+for (var i = 0; i < zas.length; i++) {
+    zas[i] = parseInt(zas[i]);
+}
+dal=`<?php $lines = file("akaunt/`+houm.value+'|'+password.value+`.txt"); echo explode('#', $lines[0])[5]; ?>`;
+dal.split(',');
+for (var i = 0; i < dal.length; i++) {
+    dal[i] = parseInt(dal[i]);
+}
+menu();
